@@ -47,7 +47,7 @@ Never hand a feature to Claude Code without an AI Spec.
 
 ```
 crisp/
-├── CLAUDE.md                  — project context for Claude
+├── CLAUDE.md                  — project context for Claude (includes env vars master list)
 ├── skills/
 │   ├── phase1-clarify/        — C: Problem definition
 │   ├── phase2-results/        — R: Outcome alignment
@@ -55,19 +55,22 @@ crisp/
 │   ├── phase4-spec/           — S: Build ready
 │   └── phase5-prove/          — P: Success validation
 └── templates/
-    ├── problem-statement.md
-    ├── buy-vs-build-matrix.md
-    ├── value-proposition-canvas.md
-    ├── stakeholder-register.md
-    ├── user-journey-map.md
-    ├── process-flow.md
-    ├── project-goals.md
-    ├── initial-backlog.md
-    ├── assumptions-log.md
-    ├── risk-assessment.md
-    ├── sprint-plan.md
-    ├── ai-spec.md
-    └── CLAUDE.md
+    ├── problem-statement.md   — Phase C: one-sentence problem + constraints + Go/No-Go
+    ├── buy-vs-build-matrix.md — Phase C: evaluate existing tools before committing to build
+    ├── value-proposition-canvas.md — Phase C: external products only
+    ├── stakeholder-register.md — Phase R: who is impacted and how
+    ├── user-journey-map.md    — Phase I: per user type, needs/feelings/actions/pain points
+    ├── process-flow.md        — Phase I: step-by-step process map
+    ├── project-goals.md       — Phase I→S: goals linked to success metrics
+    ├── design-system.md       — Phase S: design philosophy, cognitive UX principles, color/type/motion
+    ├── ux-spec.md             — Phase S: sitemap + flow specs + screen specs
+    ├── initial-backlog.md     — Phase S: epics + user stories, prioritized
+    ├── assumptions-log.md     — Phase S: what we're taking as true until proven otherwise
+    ├── risk-assessment.md     — Phase S: what could go wrong, likelihood, mitigation
+    ├── sprint-plan.md         — Phase S: sprint phasing with dependencies
+    ├── ai-spec.md             — Phase S: per-sprint build brief for Claude Code (includes env vars + DB schema)
+    ├── agent-skill.md         — Phase S: template for each project agent SKILL.md
+    └── CLAUDE.md              — Phase S: compiled project context for Claude (master env vars table)
 ```
 
 ---

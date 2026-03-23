@@ -54,6 +54,31 @@ _(From Phase 4B agent map — name, responsibility, SKILL.md location)_
 |---|---|---|
 | | | skills/[name]/SKILL.md |
 
+## Environment Variables
+
+> Never commit these to version control. All keys live in `.env.local` (or equivalent).
+> Claude: if a required variable is missing or undefined, stop and flag it — do not proceed or hardcode a fallback.
+
+| Variable | Purpose | Where to get it | Required? | Sprint introduced |
+|---|---|---|---|---|
+| | | | Yes / No | |
+| | | | Yes / No | |
+
+**Rules:**
+- All secrets accessed via environment variables — never hardcoded
+- `.env.local` (or equivalent) is always in `.gitignore` — verify before first commit
+- Server-side secrets (OAuth tokens, service role keys) never sent to client
+- If a variable is missing at runtime, fail loudly with a clear error — no silent fallbacks
+
+**`.env.local` template** _(copy this, never commit the filled version)_:
+```
+# [Service name]
+VARIABLE_NAME=
+
+# [Service name]
+VARIABLE_NAME=
+```
+
 ## Human-in-the-loop zones
 _(From risk-assessment.md — where Claude must NOT act autonomously)_
 
@@ -65,6 +90,7 @@ _(Non-negotiable — Claude must follow these always)_
 
 - Never log or expose PII
 - Never commit secrets or API keys
+- All environment variables verified present before use — fail loudly if missing
 - 
 
 ## Current sprint

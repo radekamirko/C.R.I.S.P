@@ -28,6 +28,19 @@ _(What is IN this spec. What is explicitly OUT.)_
 
 ---
 
+## Environment Variables
+
+> New variables introduced in this sprint only. Full list lives in `CLAUDE.md`.
+> Claude: confirm all variables below are present in `.env.local` before writing any code that depends on them.
+
+| Variable | Purpose | Where to get it | Required? |
+|---|---|---|---|
+| | | | Yes / No |
+
+_(None — if this sprint introduces no new secrets)_
+
+---
+
 ## Inputs & Outputs
 
 | # | Input | Type | Source | Required? |
@@ -37,6 +50,19 @@ _(What is IN this spec. What is explicitly OUT.)_
 | # | Output | Type | Destination | Notes |
 |---|---|---|---|---|
 | 1 | | | user / API / DB / agent | |
+
+---
+
+## Database Schema
+_(For sprints that introduce new tables or modify existing ones. Skip if not applicable.)_
+
+```sql
+-- table_name
+column_name type constraints
+```
+
+**Migration notes:**
+_(Any data migration concerns, RLS policies, indexes needed)_
 
 ---
 
@@ -58,7 +84,7 @@ _(When is this done? Written as testable statements.)_
 ---
 
 ## Prompt Architecture
-_(For AI-powered features only)_
+_(For AI-powered features only. Remove section if sprint has no AI calls.)_
 
 **Model:** Claude / GPT-4 / other  
 **Interaction type:** Single-turn / Multi-turn / Agent loop  
@@ -104,4 +130,3 @@ _(Unresolved decisions that need answering before build starts)_
 
 ## Notes for Claude Code
 _(Anything specific Claude should know when implementing this)_
-

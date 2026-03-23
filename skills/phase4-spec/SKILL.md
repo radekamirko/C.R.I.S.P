@@ -14,8 +14,27 @@ You are not building the thing. You are making the builder ready to build.
 ## 4A: Solution Design
 
 **UX/UI Direction**
-- Lo-fi wireframes or UX sketches — direction only, not pixel-perfect
-- UX/UI inspiration references
+
+Three artifacts, in this order:
+
+1. **Design System** — written once per project → `templates/design-system.md`
+   - Design philosophy and audience fit check
+   - Cognitive & behavioral UX principles (reference layer + per-screen checklist)
+   - Color palette, typography, shape language, motion, iconography, spacing
+   - Visual references (search for 2–4 that match audience and product positioning)
+   - Challenge any client-provided references that conflict with the target user
+
+2. **Sitemap** — full screen hierarchy → `templates/ux-spec.md` (Part 1)
+   - Every screen and its place in the navigation structure
+   - Navigation pattern defined before any flow is specced
+
+3. **UX Spec** — per critical flow, then per screen → `templates/ux-spec.md` (Parts 2–3)
+   - Flow spec first: user goal, entry/exit, flow map, success/failure states
+   - Screen spec: information architecture, UI elements, states, user actions
+   - Cognitive UX checklist applied to every screen
+   - Visual references per screen where needed
+
+> **Rule:** Write flows before screens. Flows reveal intent; screens are the implementation.
 
 **Tech Stack Proposal**
 - Justify against Phase C constraints (budget, time, legal, technical)
@@ -47,13 +66,13 @@ Most AI implementations fall apart here. Don't skip it.
 **Skill / Agent Architecture**
 - Map every agent needed to achieve project goals
 - For each agent: responsibilities, inputs, outputs, boundaries
-- Write `SKILL.md` per agent
+- Write `SKILL.md` per agent → `templates/agent-skill.md`
 - Map handoffs between agents
 - References: [everything-claude-code](https://github.com/affaan-m/everything-claude-code), [Anthropic skills repo](https://github.com/anthropics/skills/blob/main/skills/skill-creator/SKILL.md)
 
 **AI Spec (one per feature / sprint)**
 Write before handing any feature to Claude Code → `templates/ai-spec.md`
-Covers: context, scope, inputs/outputs, acceptance criteria, agent dependencies, prompt architecture, guardrails, constraints, test cases, open questions.
+Covers: context, scope, inputs/outputs, DB schema, acceptance criteria, agent dependencies, prompt architecture, guardrails, constraints, test cases, open questions.
 
 > No spec = no build.
 
@@ -72,7 +91,9 @@ Covers: context, scope, inputs/outputs, acceptance criteria, agent dependencies,
 ---
 
 ## Exit Checklist
-- [ ] Lo-fi wireframes / UX direction complete
+- [ ] Design system defined → `templates/design-system.md`
+- [ ] Sitemap complete → `templates/ux-spec.md`
+- [ ] UX spec written (flows + screens) → `templates/ux-spec.md`
 - [ ] Tech stack proposed and justified against constraints
 - [ ] Initial backlog written and prioritized → `templates/initial-backlog.md`
 - [ ] Assumptions log created → `templates/assumptions-log.md`
@@ -80,7 +101,7 @@ Covers: context, scope, inputs/outputs, acceptance criteria, agent dependencies,
 - [ ] Security and legal guardrails defined
 - [ ] `CLAUDE.md` drafted → `templates/CLAUDE.md`
 - [ ] Folder structure defined
-- [ ] Agent/skill map complete with `SKILL.md` per agent
+- [ ] Agent/skill map complete with `SKILL.md` per agent → `templates/agent-skill.md`
 - [ ] AI Spec written per feature/sprint → `templates/ai-spec.md`
 - [ ] Sprint plan with dependencies mapped → `templates/sprint-plan.md`
 - [ ] Quality gates defined per sprint
