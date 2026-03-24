@@ -28,22 +28,54 @@ Design one step at a time:
 
 ---
 
-## Deliverables
+## Deliverable 1: Process / Flow Diagram
 
-**1. Process / Flow Diagram**
 Map every step visually. Tool doesn't matter — draw.io, Figma, Miro, pen and paper.
 Save to `docs/process-flow.md`.
 
-**2. User Journey Map (per user type)**
-For each person interacting with the process:
-- Core steps of their journey
-- Needs, feelings, thoughts and actions at each step
-- Pain points and moments of delight
+---
+
+## Deliverable 2: User Journey Map — Pre-fill and Confirm
+
+Do not build this from scratch in the client session. Pre-fill from what you already know, then walk through it together.
+
+**Pre-fill from existing docs:**
+
+| Journey section | Source |
+|---|---|
+| User types | `docs/stakeholder-register.md` — primary and secondary users |
+| Core steps | `docs/problem-statement.md` — the process being changed; Phase C process walkthrough |
+| Needs per step | `docs/problem-statement.md` — desired outcome, ideal state |
+| Pain points | `docs/problem-statement.md` — root cause, friction inventory from Phase C walkthrough |
+| Feelings | Infer from pain points and context — frustration where friction is high, relief at resolution |
+| Moments of delight | `docs/value-proposition-canvas.md` — gain creators (external); implied by what the solution fixes |
+
+Draft a complete journey map per user type, then walk it with the client step by step:
+> "I've mapped the [user type] journey based on what we've discussed. Step 1 is [X] — they're trying to [goal], and right now the friction is [pain]. Does that match what you see?"
+
+Move through each step. Correct where they push back. Add steps they identify. Mark delight moments explicitly — they become design priorities.
+
 Save to `docs/user-journey-map.md`
 
-**3. Project Goals**
-Bullet points tying the process map to Phase R success criteria.
-Goals + non-goals + success criteria summary.
+---
+
+## Deliverable 3: Project Goals — Pre-fill and Confirm
+
+Goals are not invented in Phase I — they are derived from what's already been agreed. Pre-fill everything, then confirm.
+
+**Pre-fill from existing docs:**
+
+| Goals section | Source |
+|---|---|
+| Goals | `docs/stakeholder-register.md` — success targets and desired projections |
+| Non-goals | `docs/problem-statement.md` — scope constraints, what was explicitly ruled out |
+| Success criteria | `docs/stakeholder-register.md` — quant and qual metrics agreed at Phase R sign-off |
+
+Draft the full goals doc, then present it:
+> "Based on everything we've aligned on, I see three things this project must achieve: [1], [2], [3]. Non-goals are [X and Y] — we agreed those are out of scope. And success looks like [metric] by [timeframe]. Does that capture it, or is something missing?"
+
+Do not reopen the negotiation on success criteria — that was Phase R. If they want to change a metric now, note it, surface the tradeoff, and ask for explicit sign-off before updating.
+
 Save to `docs/project-goals.md`
 
 ---
@@ -157,9 +189,9 @@ Record the answers. They become UX notes in the screen specs.
 ## Exit Checklist
 - [ ] Process fully mapped (Track A or B) → `docs/process-flow.md`
 - [ ] Every tool, input, output, and decision point documented
-- [ ] User journey maps completed per user type → `docs/user-journey-map.md`
+- [ ] User journey map pre-filled from prior phases, confirmed with client → `docs/user-journey-map.md`
 - [ ] Needs / feelings / actions mapped across journey
-- [ ] Project goals documented and linked to Phase R success metrics → `docs/project-goals.md`
+- [ ] Project goals pre-filled from Phase R outputs, confirmed with client → `docs/project-goals.md`
 - [ ] Diagrams drawn and shared with client for confirmation
 - [ ] **[External UI/Mobile/Web]** UX Discovery complete → `docs/ux-discovery.md`
   - [ ] Audience mental model confirmed per user type (3A)

@@ -86,9 +86,30 @@ Run after market research. Pre-fill S/W from problem statement and constraints. 
 Elicit client input — let them correct, not originate.
 Output → `docs/swot.md`
 
-This feeds directly into:
-- Phase R: risk flags, opportunity prioritization
-- Phase S: positioning, MVP decisions
+### 3. Value Proposition Canvas — Pre-fill and Confirm
+
+Run after market research and SWOT are complete. Do not ask the client to fill this in from scratch — everything needed is already in prior documents.
+
+**Pre-fill from existing docs:**
+
+| VPC section | Source |
+|---|---|
+| Customer Jobs | `docs/problem-statement.md` — who has the problem and what they're trying to do |
+| Pains | `docs/problem-statement.md` — root cause, friction; `docs/market-research.md` — review mining complaints |
+| Gains | `docs/problem-statement.md` — desired outcome, ROI; `docs/market-research.md` — what reviewers wish existed |
+| Products & Services | What you've agreed to build in Phase C scope |
+| Pain Relievers | Map your solution directly to each pain identified above |
+| Gain Creators | Map your solution directly to each gain identified above |
+| USP | `docs/market-research.md` — positioning gap recommendation |
+| Competitive Landscape | `docs/market-research.md` — competitor table |
+| TAM | `docs/market-research.md` — TAM estimate |
+
+Pre-fill the entire canvas, then present it:
+> "I've pulled this together from everything we've discussed and what I found in the market. The core customer job is [X], the main pain is [Y], and our edge is [Z]. Does that hold up, or are you seeing gaps?"
+
+One round of corrections is enough. If they want to add a pain or reframe the USP — update it. Do not turn this into a brainstorm.
+
+Output → `docs/value-proposition-canvas.md`
 
 ---
 
@@ -116,7 +137,7 @@ This feeds directly into:
 - [ ] Constraints captured (budget, time, legal, scope, tech)
 - [ ] Buy vs Build evaluated → `docs/buy-vs-build-matrix.md`
 - [ ] **[External only]** Market research complete → `docs/market-research.md`
-- [ ] **[External only]** Value Proposition Canvas → `docs/value-proposition-canvas.md`
+- [ ] **[External only]** Value Proposition Canvas pre-filled and confirmed → `docs/value-proposition-canvas.md`
 - [ ] **[External only]** SWOT complete → `docs/swot.md`
 - [ ] Go / No-Go called
 

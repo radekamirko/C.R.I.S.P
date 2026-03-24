@@ -87,21 +87,80 @@ These integration specs are prerequisites — they must be written before the sp
 
 ---
 
-## 4C: Project Foundation
+## 4C: Project Foundation — Pre-fill and Confirm
 
-**Initial Backlog** → `docs/initial-backlog.md`
-- Pull user types from `docs/stakeholder-register.md` for user story format
-- Every epic must link to a goal in `docs/project-goals.md`
-- Every goal in `docs/project-goals.md` must have at least one epic
-- Leave MVP tag column blank at this stage — filled in 4D
+> None of these three documents are created from scratch. Everything needed already exists in prior phase outputs.
+> Pre-fill each one fully, then present to the client for a single round of corrections.
 
-**Assumptions Log** → `docs/assumptions-log.md`
+---
 
-**Risk Assessment** → `docs/risk-assessment.md`
-- Pull known threats from `docs/swot.md` (external projects)
-- Security posture: data handling, access control, auth
-- Legal/compliance: GDPR, HIPAA, IP, data residency
-- Human-in-the-loop zones formalized (carried forward from Phase R)
+### Initial Backlog — Pre-fill and Confirm → `docs/initial-backlog.md`
+
+**Pre-fill from existing docs:**
+
+| Backlog section | Source |
+|---|---|
+| User types for stories | `docs/stakeholder-register.md` — primary and secondary users |
+| Epics | `docs/user-journey-map.md` — each major journey stage is an epic candidate; `docs/project-goals.md` — each goal should map to at least one epic |
+| Feature scope | `docs/problem-statement.md` — what's in and out of scope; `docs/buy-vs-build-matrix.md` — what's being built vs bought |
+| Out of scope / non-goals | `docs/project-goals.md` — non-goals; `docs/problem-statement.md` — explicit exclusions |
+| 3rd party integrations | `docs/buy-vs-build-matrix.md` and tech stack decision from 4B |
+
+Draft the full backlog — epics, user stories per epic in "As a [user], I want to [action], so that [outcome]" format. Leave MVP tag column blank (filled in 4D).
+
+Present to the client:
+> "I've drafted the full feature list from everything we've mapped. Here are the epics I see: [list]. Does anything feel missing, wrongly scoped, or named in a way that doesn't match how your team talks about it?"
+
+One round of corrections. Do not reopen scope discussions that were settled in Phase C.
+
+---
+
+### Assumptions Log — Pre-fill and Confirm → `docs/assumptions-log.md`
+
+> An assumption is anything you've treated as true in prior phases without explicit confirmation. Surface them now — wrong assumptions are the #1 cause of project failure.
+
+**Pre-fill by scanning prior docs for implicit decisions:**
+
+| Where to look | What to surface |
+|---|---|
+| `docs/problem-statement.md` | Constraints assumed (budget range, timeline, legal framework) |
+| `docs/buy-vs-build-matrix.md` | Tools assumed available, costs assumed affordable |
+| `docs/stakeholder-register.md` | User behaviour and adoption assumed |
+| `docs/market-research.md` | Market size, competitor behaviour, user willingness to switch |
+| `docs/process-flow.md` | Data availability, system access, API reliability assumed |
+| `docs/ux-discovery.md` | User mental models and device usage assumed |
+| Tech stack decision (4B) | Third-party reliability, library support, hosting costs assumed |
+
+For each assumption, rate risk: **High** (wrong = project fails or pivots), **Medium** (wrong = rework), **Low** (wrong = minor adjustment).
+
+Present the log:
+> "Before we go further — here are the assumptions baked into everything so far. The high-risk ones are [X and Y]. Do any of these look wrong to you, or are there dependencies I haven't captured?"
+
+Flag any invalidated assumptions immediately and resolve before proceeding.
+
+---
+
+### Risk Assessment — Pre-fill and Confirm → `docs/risk-assessment.md`
+
+> All risks are already visible in prior documents. This is compilation, not invention.
+
+**Pre-fill from existing docs:**
+
+| Risk category | Source |
+|---|---|
+| Business risks | `docs/swot.md` — threats (external); `docs/problem-statement.md` — constraints |
+| Technical risks | `docs/buy-vs-build-matrix.md` — build complexity; `docs/assumptions-log.md` — high-risk technical assumptions; tech stack from 4B |
+| Legal / compliance | `docs/problem-statement.md` — legal constraints; `docs/stakeholder-register.md` — GDPR/HIPAA/data residency |
+| Security | Data types from `docs/stakeholder-register.md` and `docs/process-flow.md`; auth approach from tech stack |
+| People / adoption | `docs/stakeholder-register.md` — stakeholders with neutral or negative impact |
+| Human-in-the-loop zones | `docs/stakeholder-register.md` — HITL flags from Phase R; `docs/process-flow.md` — decision points |
+
+Draft all risks with likelihood, impact, mitigation, and owner. Pre-fill HITL zones from Phase R — don't reinvent them.
+
+Present to the client:
+> "Here's the risk register. The top three I'd flag are [X, Y, Z] — [brief reason each]. Are there risks specific to your team, market, or context that I'm not seeing?"
+
+One round of additions. Lock it and move on.
 
 ---
 
@@ -226,35 +285,63 @@ Only after this is complete: proceed to 4E and sprint planning.
 This is the layer between "we know what to build" and "Claude Code starts building."
 Most AI implementations fall apart here. Don't skip it.
 
-**Claude Setup — in this order:**
-1. Write `CLAUDE.md` in the project root — compile context from ALL `docs/` files
-   - Problem statement, constraints, goals, success metrics, tech stack, agent map, env vars master list
-   - Include the CRISP Output Manifest (see Phase 4 Outputs below) so Claude always knows what docs exist
-   - This is what Claude reads at the start of every session — make it complete
-2. Define folder structure before any code is written
-3. Define session context strategy — what must Claude know at the start of every session?
+---
 
-**Skill / Agent Architecture**
+### CLAUDE.md
+
+Compile from ALL `docs/` files → `CLAUDE.md` in project root.
+- Problem statement, constraints, goals, success metrics, tech stack, agent map, env vars master list
+- Include the CRISP Output Manifest (see Phase 4 Outputs below) so Claude always knows what docs exist
+- This is what Claude reads at the start of every session — make it complete and current
+
+---
+
+### Skill / Agent Architecture
+
 - Pull process steps from `docs/process-flow.md` — each major step is a candidate agent
-- For each agent: responsibilities, inputs, outputs, boundaries
+- For each agent: define responsibilities, inputs, outputs, and boundaries
 - Map handoffs between agents
-- Write `SKILL.md` per agent into the project's `skills/` folder
+- Write one `SKILL.md` per agent into the project's `skills/` folder using `templates/agent-skill.md`
 
-**AI Spec (one per feature / sprint)**
-Write before handing any feature to Claude Code → `docs/ai-spec-[feature-or-sprint].md`
-- Use `templates/ai-spec.md` as the blank starting point
-- If the feature involves a 3rd party integration: complete the **3rd Party Integrations** section
-- Integration specs must be written before the sprint that depends on them
+---
 
-> No spec = no build.
+### AI Spec — Pre-fill and Confirm (one per sprint / feature)
 
-**Sprint Planning** → `docs/sprint-plan.md`
+> Do not hand a sprint to Claude Code with a blank spec. Pre-fill everything derivable, then confirm with the client in one pass.
+> Save each spec to `docs/ai-spec-[sprint-or-feature-name].md`
+
+**Pre-fill each AI Spec from existing docs:**
+
+| Spec section | Source |
+|---|---|
+| Context (why this feature exists) | `docs/project-goals.md` — which goal it serves; `docs/problem-statement.md` — the problem it solves |
+| Scope — In | User stories tagged to this sprint in `docs/initial-backlog.md` |
+| Scope — Out | `docs/project-goals.md` — non-goals; `docs/initial-backlog.md` — POST-MVP items |
+| Inputs | `docs/user-journey-map.md` — what the user brings; `docs/process-flow.md` — what data flows in |
+| Outputs | `docs/user-journey-map.md` — what the user gets; `docs/process-flow.md` — what moves downstream |
+| Business logic / rules | `docs/process-flow.md` — decision points; `docs/stakeholder-register.md` — HITL zones |
+| Edge cases | `docs/assumptions-log.md` — high-risk assumptions; `docs/risk-assessment.md` — relevant risks |
+| 3rd Party Integrations | `docs/buy-vs-build-matrix.md` and 4B tech stack — only for sprints that call those APIs |
+| Environment variables | 4B tech stack; prior integration AI specs |
+
+Present each pre-filled spec to the client:
+> "Here's the spec for Sprint [N] — [goal]. It covers [X and Y], explicitly excludes [Z], and the main logic is [brief summary]. Does anything look wrong or incomplete before I hand this to Claude Code?"
+
+One round of corrections. Lock it. No spec changes mid-sprint.
+
+---
+
+### Sprint Planning → `docs/sprint-plan.md`
+
 - MVP-tagged features feed Sprint 1+. Post-MVP feeds later sprints.
 - Use dependency map from `docs/mvp-prioritization.md` to sequence sprints correctly
 - Each sprint = a clear, bounded, testable unit of work
 - Integration AI specs must be complete before any sprint that calls that API
 
-**Quality & Safety Gates (per sprint)**
+---
+
+### Quality & Safety Gates (per sprint)
+
 - Deployment checklist: dependencies resolved, env vars clean, no secrets in code
 - Security review before each deploy
 - PR review standards defined
@@ -276,7 +363,7 @@ Write before handing any feature to Claude Code → `docs/ai-spec-[feature-or-sp
 | `docs/assumptions-log.md` | Logged assumptions and resolution status | Always |
 | `docs/risk-assessment.md` | Risks, mitigations, security posture, legal/compliance, HITL zones | Always |
 | `docs/mvp-prioritization.md` | HVLE scoring table, weighted criteria, priority scores, MVP line | Always |
-| `docs/ai-spec-[name].md` | One per feature/sprint — inputs, outputs, logic, edge cases | Always (one per sprint) |
+| `docs/ai-spec-[name].md` | One per feature/sprint — pre-filled from docs/, confirmed with client | Always (one per sprint) |
 | `docs/ai-spec-[service].md` | Integration spec per 3rd party service | Per integration |
 | `docs/sprint-plan.md` | Sprint sequence, goals, features per sprint, quality gates | Always |
 | `CLAUDE.md` | Compiled project context — lives in project root, not docs/ | Always |
@@ -297,11 +384,11 @@ Write before handing any feature to Claude Code → `docs/ai-spec-[feature-or-sp
 - [ ] Integration AI Spec written per service → `docs/ai-spec-[service-name].md`
 - [ ] Auth, endpoints, payloads, DB mapping documented for each
 
-**Foundation**
-- [ ] Initial backlog written, every epic linked to a goal → `docs/initial-backlog.md`
+**Foundation (pre-filled and confirmed)**
+- [ ] Initial backlog pre-filled from journey map + goals, confirmed with client → `docs/initial-backlog.md`
 - [ ] Every goal in `docs/project-goals.md` has at least one epic
-- [ ] Assumptions log created → `docs/assumptions-log.md`
-- [ ] Risk assessment complete (threats from SWOT included) → `docs/risk-assessment.md`
+- [ ] Assumptions log pre-filled from all prior phase docs, high-risk items flagged → `docs/assumptions-log.md`
+- [ ] Risk assessment pre-filled from SWOT + constraints + HITL zones, confirmed → `docs/risk-assessment.md`
 - [ ] Security and legal guardrails defined
 
 **MVP Prioritization (HVLE)**
@@ -320,7 +407,7 @@ Write before handing any feature to Claude Code → `docs/ai-spec-[feature-or-sp
 - [ ] `CLAUDE.md` compiled from all `docs/` outputs — includes output manifest
 - [ ] Folder structure defined
 - [ ] Agent/skill map complete — one `SKILL.md` per agent in project `skills/` folder
-- [ ] AI Spec written per feature/sprint → `docs/ai-spec-[name].md`
+- [ ] AI Specs pre-filled from docs/, confirmed with client before each sprint → `docs/ai-spec-[name].md`
 - [ ] Sprint plan sequenced using MVP prioritization + dependency map → `docs/sprint-plan.md`
 - [ ] Quality gates defined per sprint
 - [ ] Integration specs completed before sprints that depend on them
