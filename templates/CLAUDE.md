@@ -35,11 +35,17 @@ _(From docs/initial-backlog.md — out of scope / POST-MVP)_
 
 
 ## Tech stack
-_(From Phase 4A tech stack proposal)_
+_(From Phase 4B tech stack proposal — pinned versions are mandatory)_
 
-| Layer | Tool | Notes |
-|---|---|---|
-| | | |
+| Layer | Tool | Pinned version | Notes |
+|---|---|---|---|
+| | | | |
+
+**Version rules — Claude must follow these every session:**
+- Use only the versions listed above. Do not upgrade silently or assume a newer version.
+- If a library's API in your training data differs from the pinned version — trust the pinned version.
+- If a version conflict arises, stop and flag it. Do not resolve silently.
+- Do not add dependencies not listed here without flagging it first.
 
 ## Folder structure
 _(Describe key directories and what lives where)_

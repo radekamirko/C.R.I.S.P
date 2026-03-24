@@ -30,6 +30,17 @@ _(What is IN this spec. What is explicitly OUT.)_
 
 ---
 
+## Version-Sensitive Dependencies
+_(List any libraries used in this sprint where version matters — especially if the API changed between major versions. Claude must use the pinned versions from CLAUDE.md, not assume latest.)_
+
+| Library | Pinned version | Breaking change to watch |
+|---|---|---|
+| | | e.g. "use createRoot not ReactDOM.render" |
+
+_(None — if this sprint introduces no version-sensitive usage)_
+
+---
+
 ## Environment Variables
 
 > New variables introduced in this sprint only. Full list lives in `CLAUDE.md`.

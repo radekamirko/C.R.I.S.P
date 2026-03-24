@@ -67,6 +67,32 @@ Three artifacts, in this order:
 ## 4B: Tech Stack + NFRs + 3rd Party Integration Trigger
 
 ### Tech Stack Proposal
+
+Document every layer of the stack with the **exact pinned version** in use. Do not write "latest" — Claude will default to its training data, which may be outdated or mismatched.
+
+| Layer | Tool | Pinned version | Notes |
+|---|---|---|---|
+| | | e.g. 18.2.0 | |
+
+**Version rules Claude must follow (copy these into CLAUDE.md):**
+- Use only the versions listed in the tech stack table. Do not upgrade silently.
+- If a library's documented API differs from what you know — trust the pinned version, not your training data.
+- If a version conflict arises during build, stop and flag it. Do not resolve silently.
+- If a package requires a peer dependency at a specific version, list that peer dependency here too.
+
+**Flag known breaking changes at proposal time:**
+When proposing the stack, explicitly call out major version breaking changes relevant to this project. Do not let these surface mid-sprint. Common ones to check:
+- React 18 — concurrent mode, new root API (createRoot vs ReactDOM.render)
+- Next.js 13+ — App Router vs Pages Router are fundamentally different conventions
+- Expo SDK upgrades — frequently break native modules; check release notes before pinning
+- Supabase JS v1 → v2 — auth API changed significantly (createClient, session handling)
+- Node 16 → 18 → 20 — native fetch, ESM defaults, breaking crypto changes
+
+Present the stack with versions and flag breaking changes before confirming:
+> "Here's the proposed stack with pinned versions: [table]. Worth flagging: [relevant breaking changes for this project]. Does anything conflict with existing code or infrastructure you already have?"
+
+Confirm versions with the client before writing a single line of code. Save the pinned version table to CLAUDE.md immediately — it is the version source of truth for every sprint.
+
 - Justify every choice against constraints in `docs/problem-statement.md` (budget, time, legal, tech)
 - Cross-check `docs/buy-vs-build-matrix.md` — already-decided tools go here, not up for debate again
 - Prefer existing libraries and open source when time or budget is constrained
@@ -433,6 +459,12 @@ Work through the questions. Fill answers into the spec. One round. Lock it. No c
 - [ ] Sitemap complete, navigation pattern taken from ux-discovery (not re-decided) → `docs/ux-spec.md`
 - [ ] UX spec written (flows + screens), high-stakes screens and friction points addressed → `docs/ux-spec.md`
 - [ ] Tech stack proposed and justified against constraints in `docs/problem-statement.md`
+
+**Tech Stack & Versions**
+- [ ] Every layer of the stack has a pinned version — no "latest"
+- [ ] Known breaking changes identified and flagged to client
+- [ ] Pinned version table saved to CLAUDE.md with version rules
+- [ ] Client confirmed versions don't conflict with existing code or infra
 
 **NFRs**
 - [ ] Availability / uptime target defined
