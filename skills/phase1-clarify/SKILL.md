@@ -7,6 +7,16 @@ description: The Mileva Method (CRISP) — Phase 1: Clarify. Problem definition,
 
 Do not discuss technology, solutions, or tools until this phase is complete.
 
+## Output Convention
+
+Every filled template produced during CRISP lives in the project's `docs/` folder — not in the CRISP templates directory.
+
+> At the start of any CRISP engagement: create `docs/` in the project root if it doesn't exist.
+> Blank templates live in `/templates/` (CRISP repo). Filled project outputs live in `[project]/docs/`.
+> Never overwrite blank templates. Always write filled versions to `docs/`.
+
+---
+
 ## The 3 Moves
 
 **Move 1: Business Mirroring**
@@ -48,7 +58,7 @@ Use this early, before they've started self-editing. The answer is almost always
 - Tool solves it for $50/month? → Buy it
 - Needs config on top of existing tools? → Configure it
 - Genuinely needs custom? → Build it
-- Deliverable: one-page matrix → `templates/buy-vs-build-matrix.md`
+- Deliverable: `docs/buy-vs-build-matrix.md`
 
 ---
 
@@ -65,7 +75,7 @@ If the project is an **external product**, two additional steps are mandatory be
 
 ### 1. Market Research → `skills/phase1-clarify/market-research.md`
 Run full market research: TAM sizing, competitor mapping, feature standards (must-have vs differentiator vs gap), review mining (Reddit, G2, Product Hunt), USP gap analysis.
-Output → `templates/market-research.md`
+Output → `docs/market-research.md`
 
 This feeds directly into:
 - Phase R: success metrics (market context shapes what "good" looks like)
@@ -74,7 +84,7 @@ This feeds directly into:
 ### 2. SWOT → `skills/phase1-clarify/swot.md`
 Run after market research. Pre-fill S/W from problem statement and constraints. Pre-fill O/T from market research findings, competitor intelligence, and industry trends.
 Elicit client input — let them correct, not originate.
-Output → `templates/swot.md`
+Output → `docs/swot.md`
 
 This feeds directly into:
 - Phase R: risk flags, opportunity prioritization
@@ -82,17 +92,32 @@ This feeds directly into:
 
 ---
 
+## Phase 1 Outputs
+
+> Save all of these to `docs/` before closing Phase C. These files are inputs to every subsequent phase.
+
+| File | Contents | Required? |
+|---|---|---|
+| `docs/problem-statement.md` | One-sentence problem, constraints, Go/No-Go | Always |
+| `docs/buy-vs-build-matrix.md` | Tool evaluation matrix | Always |
+| `docs/market-research.md` | TAM, competitors, feature standards, USP | External only |
+| `docs/value-proposition-canvas.md` | USP and positioning | External only |
+| `docs/swot.md` | Strengths, weaknesses, opportunities, threats | External only |
+
+---
+
 ## Exit Checklist
-- [ ] One-sentence problem statement agreed → `templates/problem-statement.md`
+- [ ] `docs/` folder created in project root
+- [ ] One-sentence problem statement agreed and saved → `docs/problem-statement.md`
 - [ ] Business context mirrored and confirmed
 - [ ] Ideal desired state defined
 - [ ] ROI / gains identified
 - [ ] Internal vs external decided
 - [ ] Constraints captured (budget, time, legal, scope, tech)
-- [ ] Buy vs Build evaluated → `templates/buy-vs-build-matrix.md`
-- [ ] **[External only]** Market research complete → `templates/market-research.md`
-- [ ] **[External only]** Value Proposition Canvas → `templates/value-proposition-canvas.md`
-- [ ] **[External only]** SWOT complete → `templates/swot.md`
+- [ ] Buy vs Build evaluated → `docs/buy-vs-build-matrix.md`
+- [ ] **[External only]** Market research complete → `docs/market-research.md`
+- [ ] **[External only]** Value Proposition Canvas → `docs/value-proposition-canvas.md`
+- [ ] **[External only]** SWOT complete → `docs/swot.md`
 - [ ] Go / No-Go called
 
 **No-Go is a feature.** If a free tool solves it, say so. Lose the project, win the trust.

@@ -13,7 +13,7 @@ Do not discuss solutions or architecture until this phase is complete.
 Map everyone impacted — not just the client sponsor.
 - End users, employees, customers, adjacent teams
 - For each: what changes? Better, worse, neutral?
-- Save to `templates/stakeholder-register.md`
+- Save to `docs/stakeholder-register.md`
 
 ## Step 2: Baseline Measurement
 Measure the current state before anything is built.
@@ -39,8 +39,22 @@ Client sponsor speaks money and risk — use that language.
 - *"Everything is possible. Not everything is worth it. Here's what each option costs."*
 - Iterate until aligned — do not proceed without sign-off
 
+---
+
+## Phase 2 Outputs
+
+> Save before closing Phase R. These files are inputs to Phases I and S.
+
+| File | Contents | Required? |
+|---|---|---|
+| `docs/stakeholder-register.md` | All impacted parties, their stakes, human-in-the-loop zones | Always |
+
+> Baseline measurements and desired projections are captured inside `docs/stakeholder-register.md` — no separate file needed unless the project warrants a standalone metrics doc.
+
+---
+
 ## Exit Checklist
-- [ ] Stakeholder register complete → `templates/stakeholder-register.md`
+- [ ] Stakeholder register complete and saved → `docs/stakeholder-register.md`
 - [ ] Baseline measured across all key dimensions
 - [ ] Desired projections defined — relative where possible
 - [ ] Second-order impacts identified
