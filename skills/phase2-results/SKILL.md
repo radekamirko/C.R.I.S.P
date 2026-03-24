@@ -9,9 +9,9 @@ description: The Mileva Method (CRISP) — Phase 2: Results. Outcome alignment, 
 
 Do not discuss solutions or architecture until this phase is complete.
 
-## Step 1: Stakeholder Register — Pre-fill and Confirm
+## Step 1: Stakeholder Register — Pre-fill, Elicit, Confirm
 
-Do not open a blank register and ask "who are the stakeholders?" — you already have what you need.
+Do not open a blank register and ask "who are the stakeholders?" — you already have what you need to start.
 
 **Pre-fill from existing docs:**
 
@@ -23,10 +23,26 @@ Do not open a blank register and ask "who are the stakeholders?" — you already
 | Impact per stakeholder | `docs/problem-statement.md` — what changes for each group when the problem is solved |
 | Human-in-the-loop zones | `docs/problem-statement.md` — constraints; `docs/swot.md` — threats (external) |
 
-Pre-fill the full register, then present it:
-> "Here's everyone I see being affected by this. [Primary user] is the main one — this changes [X] for them. [Adjacent team] gets [better/worse/neutral] because [Y]. Does this feel complete, or is there a group I'm missing?"
+Draft the register, then work through it with three elicitation moves before confirming:
 
-Add anyone they flag. If they struggle to think of more — good, the list is probably right.
+**Move 1 — Surface the hidden stakeholders**
+> "Here's everyone I see being affected. [Primary user], [adjacent team], [sponsor]. Before we go further — who else touches this process, even occasionally? The person who only shows up when something goes wrong. The team that gets the output but has no say in the input."
+
+People forget about downstream consumers, compliance reviewers, support staff. Get them on the register now.
+
+**Move 2 — Challenge the impact ratings**
+For each stakeholder, name the impact and let them push back:
+> "I've marked [team X] as neutral — they're not doing the work differently, just receiving better output. Does that feel right, or are there ways this actually makes their life harder before it gets better?"
+
+Neutral is often wrong. Changes create transition friction even when the end state is better. Flush that out.
+
+**Move 3 — Elicit the HITL zones**
+> "For each of these groups — where in this process would you be uncomfortable with a fully automated decision? Where does a human need to stay in the loop, even if the AI could technically handle it?"
+
+Don't pre-fill HITL zones — let the client name them. Their discomfort is the signal, not your inference.
+
+Confirm the completed register:
+> "Here's the full picture. Does anything feel wrong before we lock this and move to baselines?"
 
 Save to `docs/stakeholder-register.md`
 
@@ -91,10 +107,12 @@ Client sponsor speaks money and risk — use that language.
 ---
 
 ## Exit Checklist
-- [ ] Stakeholder register pre-filled from Phase C docs, confirmed with client → `docs/stakeholder-register.md`
+- [ ] Stakeholder register pre-filled, elicited (3 moves), confirmed → `docs/stakeholder-register.md`
+- [ ] Hidden stakeholders surfaced (downstream consumers, compliance, support)
+- [ ] Impact ratings challenged — neutral validated, not assumed
+- [ ] HITL zones elicited from client, not inferred
 - [ ] Baseline measured across all key dimensions
 - [ ] Desired projections defined — relative where possible
 - [ ] Second-order impacts identified
-- [ ] Human-in-the-loop zones flagged
 - [ ] Tradeoffs presented and discussed
 - [ ] Quant and qual success criteria agreed and signed off by client sponsor

@@ -64,14 +64,45 @@ Three artifacts, in this order:
 
 ---
 
-## 4B: Tech Stack + 3rd Party Integration Trigger
+## 4B: Tech Stack + NFRs + 3rd Party Integration Trigger
 
-**Tech Stack Proposal**
+### Tech Stack Proposal
 - Justify every choice against constraints in `docs/problem-statement.md` (budget, time, legal, tech)
 - Cross-check `docs/buy-vs-build-matrix.md` — already-decided tools go here, not up for debate again
 - Prefer existing libraries and open source when time or budget is constrained
 
-**3rd Party Integration Identification — mandatory step**
+---
+
+### Non-Functional Requirements — Elicit and Document
+
+> NFRs are project-wide constraints. Capture them once here, before sprint planning begins.
+> They go into `CLAUDE.md` and are referenced by every sprint that touches the relevant layer.
+> Do not leave these as assumptions — a wrong default causes rework in production.
+
+Pre-fill what you can from `docs/problem-statement.md` (constraints) and `docs/stakeholder-register.md` (compliance, data sensitivity). Then elicit the rest with these questions:
+
+**Availability & Performance**
+> "What's the acceptable downtime for this product? Business-critical (99.9%+ uptime) or is occasional downtime tolerable for MVP?"
+> "Any known peak usage moments — an event, a campaign, end of month? How many concurrent users at max load?"
+
+**Security**
+> "Does any data in this system need to be encrypted at rest? In transit? I'll assume yes for both unless there's a reason not to — confirm?"
+> "Who can access what? Are there roles with different data visibility, or flat access for all authenticated users?"
+
+**Deployment & Infrastructure**
+> "Should this be containerised with Docker? It makes deployment and environment parity much cleaner — any reason not to?"
+> "Self-hosted or cloud? If cloud — any provider preference, or should I recommend based on the stack and budget?"
+> "Any data residency requirement — does data need to stay in a specific country or region?" _(Cross-check with legal constraints in `docs/problem-statement.md`)_
+
+**Reliability & Recovery**
+> "If this goes down, what's the acceptable recovery time — hours, minutes? Do we need automated backups, and how often?"
+> "Any monitoring and alerting expectations — proactive notification when something fails, or is reactive support fine for MVP?"
+
+Save NFRs as an appended section in `docs/problem-statement.md` and reference them in `CLAUDE.md`.
+
+---
+
+### 3rd Party Integration Identification — mandatory step
 
 > Every 3rd party service in the tech stack = a required integration AI Spec.
 
@@ -87,39 +118,39 @@ These integration specs are prerequisites — they must be written before the sp
 
 ---
 
-## 4C: Project Foundation — Pre-fill and Confirm
-
-> None of these three documents are created from scratch. Everything needed already exists in prior phase outputs.
-> Pre-fill each one fully, then present to the client for a single round of corrections.
+## 4C: Project Foundation
 
 ---
 
-### Initial Backlog — Pre-fill and Confirm → `docs/initial-backlog.md`
+### Initial Backlog — Pre-fill, Name-check, Confirm → `docs/initial-backlog.md`
 
 **Pre-fill from existing docs:**
 
 | Backlog section | Source |
 |---|---|
-| User types for stories | `docs/stakeholder-register.md` — primary and secondary users |
-| Epics | `docs/user-journey-map.md` — each major journey stage is an epic candidate; `docs/project-goals.md` — each goal should map to at least one epic |
+| User types for stories | `docs/stakeholder-register.md` — system users only (not oversight stakeholders) |
+| Epics | `docs/user-journey-map.md` — each major journey stage is an epic candidate; `docs/project-goals.md` — each goal must map to at least one epic |
 | Feature scope | `docs/problem-statement.md` — what's in and out of scope; `docs/buy-vs-build-matrix.md` — what's being built vs bought |
 | Out of scope / non-goals | `docs/project-goals.md` — non-goals; `docs/problem-statement.md` — explicit exclusions |
 | 3rd party integrations | `docs/buy-vs-build-matrix.md` and tech stack decision from 4B |
 
-Draft the full backlog — epics, user stories per epic in "As a [user], I want to [action], so that [outcome]" format. Leave MVP tag column blank (filled in 4D).
+Draft full epics and user stories in "As a [user], I want to [action], so that [outcome]" format. Leave MVP tag column blank — filled in 4D.
 
-Present to the client:
-> "I've drafted the full feature list from everything we've mapped. Here are the epics I see: [list]. Does anything feel missing, wrongly scoped, or named in a way that doesn't match how your team talks about it?"
+Present with a naming check first:
+> "Here are the epics I've drafted: [list]. Before we check completeness — does the naming match how your team actually talks about these? 'Report Lost Item' might be 'Create a Case' in your world. Let's get the language right before we go deeper."
 
-One round of corrections. Do not reopen scope discussions that were settled in Phase C.
+Then completeness:
+> "Anything missing, or anything here that doesn't belong?"
+
+One round. Do not reopen scope discussions settled in Phase C.
 
 ---
 
 ### Assumptions Log — Pre-fill and Confirm → `docs/assumptions-log.md`
 
-> An assumption is anything you've treated as true in prior phases without explicit confirmation. Surface them now — wrong assumptions are the #1 cause of project failure.
+> An assumption is anything treated as true in prior phases without explicit confirmation. Surface them now — wrong assumptions are the #1 cause of project failure.
 
-**Pre-fill by scanning prior docs for implicit decisions:**
+**Pre-fill by scanning all prior docs for implicit decisions:**
 
 | Where to look | What to surface |
 |---|---|
@@ -129,20 +160,18 @@ One round of corrections. Do not reopen scope discussions that were settled in P
 | `docs/market-research.md` | Market size, competitor behaviour, user willingness to switch |
 | `docs/process-flow.md` | Data availability, system access, API reliability assumed |
 | `docs/ux-discovery.md` | User mental models and device usage assumed |
-| Tech stack decision (4B) | Third-party reliability, library support, hosting costs assumed |
+| Tech stack + NFRs (4B) | Third-party reliability, library support, hosting costs, uptime assumed |
 
-For each assumption, rate risk: **High** (wrong = project fails or pivots), **Medium** (wrong = rework), **Low** (wrong = minor adjustment).
+Rate each assumption: **High** (wrong = project fails or pivots) / **Medium** (wrong = rework) / **Low** (wrong = minor adjustment).
 
-Present the log:
-> "Before we go further — here are the assumptions baked into everything so far. The high-risk ones are [X and Y]. Do any of these look wrong to you, or are there dependencies I haven't captured?"
+Present for confirmation — the client didn't create these assumptions, you did:
+> "Here are the assumptions baked into everything so far. The high-risk ones are [X and Y]. Do any of these look wrong to you?"
 
-Flag any invalidated assumptions immediately and resolve before proceeding.
+Flag invalidated assumptions immediately and resolve before proceeding.
 
 ---
 
-### Risk Assessment — Pre-fill and Confirm → `docs/risk-assessment.md`
-
-> All risks are already visible in prior documents. This is compilation, not invention.
+### Risk Assessment — Pre-fill, Elicit hidden risks, Confirm → `docs/risk-assessment.md`
 
 **Pre-fill from existing docs:**
 
@@ -151,16 +180,16 @@ Flag any invalidated assumptions immediately and resolve before proceeding.
 | Business risks | `docs/swot.md` — threats (external); `docs/problem-statement.md` — constraints |
 | Technical risks | `docs/buy-vs-build-matrix.md` — build complexity; `docs/assumptions-log.md` — high-risk technical assumptions; tech stack from 4B |
 | Legal / compliance | `docs/problem-statement.md` — legal constraints; `docs/stakeholder-register.md` — GDPR/HIPAA/data residency |
-| Security | Data types from `docs/stakeholder-register.md` and `docs/process-flow.md`; auth approach from tech stack |
+| Security | Data types from `docs/stakeholder-register.md` and `docs/process-flow.md`; NFRs from 4B; auth approach from tech stack |
 | People / adoption | `docs/stakeholder-register.md` — stakeholders with neutral or negative impact |
 | Human-in-the-loop zones | `docs/stakeholder-register.md` — HITL flags from Phase R; `docs/process-flow.md` — decision points |
 
 Draft all risks with likelihood, impact, mitigation, and owner. Pre-fill HITL zones from Phase R — don't reinvent them.
 
-Present to the client:
-> "Here's the risk register. The top three I'd flag are [X, Y, Z] — [brief reason each]. Are there risks specific to your team, market, or context that I'm not seeing?"
+Then elicit what docs can never capture — context the client carries in their head:
+> "Here's the risk register. I've covered the standard bases. But what keeps you up at night about this project that I haven't listed? A vendor relationship, a team dynamic, a deadline tied to something external — anything that would make this harder than it looks on paper?"
 
-One round of additions. Lock it and move on.
+Add what they surface. One round. Lock it.
 
 ---
 
@@ -290,7 +319,7 @@ Most AI implementations fall apart here. Don't skip it.
 ### CLAUDE.md
 
 Compile from ALL `docs/` files → `CLAUDE.md` in project root.
-- Problem statement, constraints, goals, success metrics, tech stack, agent map, env vars master list
+- Problem statement, constraints, goals, success metrics, tech stack, NFRs, agent map, env vars master list
 - Include the CRISP Output Manifest (see Phase 4 Outputs below) so Claude always knows what docs exist
 - This is what Claude reads at the start of every session — make it complete and current
 
@@ -305,12 +334,13 @@ Compile from ALL `docs/` files → `CLAUDE.md` in project root.
 
 ---
 
-### AI Spec — Pre-fill and Confirm (one per sprint / feature)
+### AI Spec — Pre-fill, Generate Open Questions, Confirm (one per sprint / feature)
 
-> Do not hand a sprint to Claude Code with a blank spec. Pre-fill everything derivable, then confirm with the client in one pass.
+> Do not hand a sprint to Claude Code with a blank spec or unresolved questions.
+> Pre-fill everything derivable, generate sprint-specific open questions, resolve them with the client, then lock.
 > Save each spec to `docs/ai-spec-[sprint-or-feature-name].md`
 
-**Pre-fill each AI Spec from existing docs:**
+**Step 1: Pre-fill from existing docs**
 
 | Spec section | Source |
 |---|---|
@@ -321,13 +351,38 @@ Compile from ALL `docs/` files → `CLAUDE.md` in project root.
 | Outputs | `docs/user-journey-map.md` — what the user gets; `docs/process-flow.md` — what moves downstream |
 | Business logic / rules | `docs/process-flow.md` — decision points; `docs/stakeholder-register.md` — HITL zones |
 | Edge cases | `docs/assumptions-log.md` — high-risk assumptions; `docs/risk-assessment.md` — relevant risks |
+| NFR references | `docs/problem-statement.md` NFR section — which NFRs apply to this sprint |
 | 3rd Party Integrations | `docs/buy-vs-build-matrix.md` and 4B tech stack — only for sprints that call those APIs |
 | Environment variables | 4B tech stack; prior integration AI specs |
 
-Present each pre-filled spec to the client:
-> "Here's the spec for Sprint [N] — [goal]. It covers [X and Y], explicitly excludes [Z], and the main logic is [brief summary]. Does anything look wrong or incomplete before I hand this to Claude Code?"
+**Step 2: Generate sprint-specific open questions**
 
-One round of corrections. Lock it. No spec changes mid-sprint.
+After pre-filling, read the sprint's user stories and process-flow steps and ask: *"What would a developer need to know that isn't written down yet?"*
+
+Use these category prompts to generate questions — only include categories relevant to what this sprint builds:
+
+| Sprint touches… | Questions to generate |
+|---|---|
+| **Auth / Identity** | Session expiry? What happens on expiry — logout or silent refresh? MFA required? Social login providers? Password reset — link or code? |
+| **File / Media handling** | Max file size? Allowed types? Storage location — cloud bucket, local, CDN? Original preserved or processed version only? Who can access uploaded files? |
+| **Background jobs / Async** | What triggers the job — event, schedule, or manual? Retry on failure? Max retries? Dead letter queue? Does the user need feedback on completion? |
+| **Real-time / Live updates** | WebSockets or polling? Fallback if connection drops? Are updates persistent (stored) or ephemeral (lost on refresh)? |
+| **Notifications (push / email / SMS)** | Which events trigger a notification? User-configurable or always-on? Opt-out mechanism required? |
+| **Payments / Financial** | Which payment provider? Sandbox credentials available? Refund logic — automatic or manual? Currency and locale handling? |
+| **Search / Filtering** | Full-text or filtered? Server-side or client-side? Indexed or real-time? Results ranking logic? |
+| **Roles / Permissions** | Which roles exist in this sprint? What can each role see/do/not do? Who can promote or revoke roles? |
+
+Save generated questions as an **Open Questions** section at the bottom of the AI Spec.
+
+> All open questions must be answered before the spec is locked and the sprint begins.
+> A spec with unresolved questions is not a spec — it's a wishlist.
+
+**Step 3: Resolve and confirm**
+
+Present the pre-filled spec and open questions together:
+> "Here's the spec for Sprint [N] — [goal]. I've pre-filled everything from our docs. At the bottom are [N] open questions specific to what this sprint builds — we need to answer these before Claude Code starts. Want to go through them now?"
+
+Work through the questions. Fill answers into the spec. One round. Lock it. No changes mid-sprint.
 
 ---
 
@@ -343,7 +398,7 @@ One round of corrections. Lock it. No spec changes mid-sprint.
 ### Quality & Safety Gates (per sprint)
 
 - Deployment checklist: dependencies resolved, env vars clean, no secrets in code
-- Security review before each deploy
+- Security review before each deploy — cross-check NFRs from 4B
 - PR review standards defined
 - Unit test coverage requirements
 - Guardrail validation: hallucination risks, output validation, fallback logic
@@ -363,10 +418,10 @@ One round of corrections. Lock it. No spec changes mid-sprint.
 | `docs/assumptions-log.md` | Logged assumptions and resolution status | Always |
 | `docs/risk-assessment.md` | Risks, mitigations, security posture, legal/compliance, HITL zones | Always |
 | `docs/mvp-prioritization.md` | HVLE scoring table, weighted criteria, priority scores, MVP line | Always |
-| `docs/ai-spec-[name].md` | One per feature/sprint — pre-filled from docs/, confirmed with client | Always (one per sprint) |
+| `docs/ai-spec-[name].md` | One per sprint — pre-filled, open questions resolved, locked | Always (one per sprint) |
 | `docs/ai-spec-[service].md` | Integration spec per 3rd party service | Per integration |
 | `docs/sprint-plan.md` | Sprint sequence, goals, features per sprint, quality gates | Always |
-| `CLAUDE.md` | Compiled project context — lives in project root, not docs/ | Always |
+| `CLAUDE.md` | Compiled project context incl. NFRs — lives in project root, not docs/ | Always |
 
 ---
 
@@ -379,16 +434,25 @@ One round of corrections. Lock it. No spec changes mid-sprint.
 - [ ] UX spec written (flows + screens), high-stakes screens and friction points addressed → `docs/ux-spec.md`
 - [ ] Tech stack proposed and justified against constraints in `docs/problem-statement.md`
 
+**NFRs**
+- [ ] Availability / uptime target defined
+- [ ] Performance expectations set (concurrent users, response time)
+- [ ] Security confirmed: encryption at rest + in transit, role-based access
+- [ ] Deployment approach decided: Docker / containerised or not
+- [ ] Cloud provider and region decided (data residency cross-checked)
+- [ ] Backup, recovery, and monitoring expectations set
+- [ ] NFRs saved to `docs/problem-statement.md` and referenced in `CLAUDE.md`
+
 **3rd Party Integrations**
 - [ ] Every 3rd party service in tech stack identified and tagged `[INTEGRATION REQUIRED]`
 - [ ] Integration AI Spec written per service → `docs/ai-spec-[service-name].md`
 - [ ] Auth, endpoints, payloads, DB mapping documented for each
 
-**Foundation (pre-filled and confirmed)**
-- [ ] Initial backlog pre-filled from journey map + goals, confirmed with client → `docs/initial-backlog.md`
+**Foundation**
+- [ ] Initial backlog pre-filled, naming confirmed with client → `docs/initial-backlog.md`
 - [ ] Every goal in `docs/project-goals.md` has at least one epic
-- [ ] Assumptions log pre-filled from all prior phase docs, high-risk items flagged → `docs/assumptions-log.md`
-- [ ] Risk assessment pre-filled from SWOT + constraints + HITL zones, confirmed → `docs/risk-assessment.md`
+- [ ] Assumptions log pre-filled from all prior docs, high-risk items flagged, confirmed → `docs/assumptions-log.md`
+- [ ] Risk assessment pre-filled, hidden risks elicited, confirmed → `docs/risk-assessment.md`
 - [ ] Security and legal guardrails defined
 
 **MVP Prioritization (HVLE)**
@@ -404,10 +468,11 @@ One round of corrections. Lock it. No spec changes mid-sprint.
 - [ ] Backlog updated with MVP / Post-MVP / Dependency tags → `docs/initial-backlog.md`
 
 **AI Architecture**
-- [ ] `CLAUDE.md` compiled from all `docs/` outputs — includes output manifest
+- [ ] `CLAUDE.md` compiled from all `docs/` outputs — includes NFRs and output manifest
 - [ ] Folder structure defined
 - [ ] Agent/skill map complete — one `SKILL.md` per agent in project `skills/` folder
-- [ ] AI Specs pre-filled from docs/, confirmed with client before each sprint → `docs/ai-spec-[name].md`
+- [ ] AI Specs pre-filled, sprint-specific open questions generated and resolved → `docs/ai-spec-[name].md`
+- [ ] No open questions remain in any locked spec
 - [ ] Sprint plan sequenced using MVP prioritization + dependency map → `docs/sprint-plan.md`
 - [ ] Quality gates defined per sprint
 - [ ] Integration specs completed before sprints that depend on them

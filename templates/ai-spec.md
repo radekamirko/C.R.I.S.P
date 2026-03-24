@@ -4,15 +4,17 @@
 **Feature / Sprint:** 
 **Date:** 
 **Author:** 
-**Status:** Draft / Review / Approved
+**Status:** Draft / Review / Approved ← must be Approved before build starts
+**NFRs in scope:** _(list which NFRs from docs/problem-statement.md apply to this sprint — e.g. encryption at rest, 99.9% uptime, Docker deployment)_
 
 > This document is the brief for Claude Code (or any AI implementor).
 > Be specific. Ambiguity here = bugs later.
+> Status must be Approved and all Open Questions resolved before any code is written.
 
 ---
 
 ## Context
-_(Why does this feature exist? What problem does it solve? Link back to Phase 1 problem statement.)_
+_(Why does this feature exist? What problem does it solve? Link back to Phase 1 problem statement and the goal in docs/project-goals.md it serves.)_
 
 
 ## Scope
@@ -84,7 +86,7 @@ _(Complete one block per external API or service. Skip section entirely if none.
    - Any webhooks or polling required to keep data fresh?
 
 5. **Flag gaps**
-   - Anything missing from public docs (needs sandbox access, unclear error handling, undocumented fields) → list as Open Questions
+   - Anything missing from public docs → list as Open Questions below
 
 ---
 
@@ -133,15 +135,9 @@ _(Complete one block per external API or service. Skip section entirely if none.
 | API field | Our DB table | Our column | Transformation needed |
 |---|---|---|---|
 | | | | |
-| | | | |
 
 #### Logic Notes
 _(How does this integration fit into our app flow? When is it called, by what, triggered how?)_
-
-#### Gaps / Unknowns
-_(What the docs didn't answer — carry these to Open Questions below)_
--
--
 
 ---
 
@@ -155,6 +151,14 @@ column_name type constraints
 
 **Migration notes:**
 _(Any data migration concerns, RLS policies, indexes needed)_
+
+---
+
+## Business Logic & Rules
+_(Decision points from docs/process-flow.md that this sprint implements. HITL zones from docs/stakeholder-register.md.)_
+
+- 
+- 
 
 ---
 
@@ -194,11 +198,11 @@ _(For AI-powered features only. Remove section if sprint has no AI calls.)_
 
 ## Constraints & Rules
 
-- **Security:** 
+- **Security:** _(cross-ref NFRs — encryption, access control)_
 - **Data handling:** _(PII? Logging allowed?)_
-- **Performance:** _(Response time expectations)_
+- **Performance:** _(Response time expectations from NFRs)_
 - **Error handling:** _(What happens when it fails?)_
-- **Fallback:** _(What does the user see if the AI fails?)_
+- **Fallback:** _(What does the user see if the AI or service fails?)_
 
 ---
 
@@ -213,7 +217,8 @@ _(For AI-powered features only. Remove section if sprint has no AI calls.)_
 ---
 
 ## Open Questions
-_(Unresolved decisions that need answering before build starts)_
+> Generated from sprint content during Phase 4E. All must be answered before Status → Approved.
+> See phase4-spec/SKILL.md for category prompts used to generate these.
 
 - [ ] 
 - [ ] 
