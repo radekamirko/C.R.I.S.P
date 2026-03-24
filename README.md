@@ -13,6 +13,33 @@
 
 ---
 
+## Quick Start
+
+**You have a client brief. Here's how to turn it into a working implementation in 5 phases.**
+
+**1. Set up**
+Clone this repo. In your project, create a `docs/` folder — that's where all your filled outputs live.
+Blank templates stay in `/templates/`. Never overwrite them.
+
+**2. Load the first skill into Claude**
+Open Claude and load `skills/phase1-clarify/SKILL.md`. Tell it:
+> "We're starting a new CRISP engagement. Read the skill and begin Phase C."
+
+Claude will guide you through problem definition, constraints, buy vs build, and Go/No-Go.
+Do not talk about technology yet.
+
+**3. Run phases in order. Check the exit checklist before moving on.**
+C → R → I → S → P. Each phase has an exit checklist at the bottom of its SKILL.md.
+If you can't check every box — you're not done with that phase.
+
+**4. Never hand a sprint to Claude Code without a locked AI Spec.**
+Every sprint in Phase S gets its own `docs/ai-spec-[name].md`.
+All open questions resolved. Status: Approved. Then build.
+
+**That's it. The rest is detail — and it's all below.**
+
+---
+
 ## What is CRISP?
 
 CRISP is an open-source **AI project management framework** for builders, consultants, and AI agencies. It's a structured 5-phase methodology that takes you from a vague client request to a fully specced, Claude Code-ready implementation brief — before a single line of code gets written.
