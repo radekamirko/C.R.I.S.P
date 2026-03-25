@@ -1,5 +1,7 @@
 # CRISP — The Mileva Method
 
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
+
 **A BA/PM framework for AI implementors. Go from vague client brief to Claude Code-ready spec — without building the wrong thing.**
 
 > Most AI implementations fail before a single line of code is written.
@@ -172,6 +174,8 @@ CRISP is the methodology behind [Mileva](https://mileva.io) — an AI automation
 If you're a business owner looking to implement AI without wasting six weeks building the wrong thing, or an agency that wants to productise your discovery process — [mileva.io](https://mileva.io) is where this gets applied in the real world.
 
 **Questions, PRs, or war stories from using CRISP in the wild:** open an issue or find me on [X @radekamirko](https://x.com/radekamirko).
+
+Want to contribute? Read [CONTRIBUTING.md](./CONTRIBUTING.md) first.
 
 ---
 
