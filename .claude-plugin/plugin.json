@@ -1,0 +1,12 @@
+{
+  "name": "crisp",
+  "version": "1.0.0",
+  "description": "A BA/PM framework for AI builders. Full product discovery — problem definition, stakeholder mapping, user journeys, tech stack, and sprint-ready AI specs — before you write a single line of code.",
+  "author": {
+    "name": "Mirko Radeka",
+    "url": "https://mileva.io"
+  },
+  "homepage": "https://github.com/radekamirko/C.R.I.S.P",
+  "license": "MIT",
+  "keywords": ["product-management", "ai", "discovery", "specification", "ba", "pm"]
+}

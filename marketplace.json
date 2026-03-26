@@ -1,36 +1,16 @@
 {
-  "name": "CRISP",
-  "version": "1.0.0",
-  "description": "A BA/PM framework for AI builders. Full product discovery — problem definition, stakeholder mapping, user journeys, tech stack, and sprint-ready AI specs — before you write a single line of code.",
-  "author": "radekamirko",
-  "homepage": "https://github.com/radekamirko/C.R.I.S.P",
-  "license": "MIT",
-  "keywords": ["product-management", "ai", "claude-code", "discovery", "specification", "framework", "ba", "pm"],
-  "skills": [
+  "metadata": {
+    "name": "CRISP Marketplace",
+    "description": "BA/PM framework for AI builders by Mirko Radeka",
+    "homepage": "https://github.com/radekamirko/C.R.I.S.P"
+  },
+  "plugins": [
     {
-      "name": "phase1-clarify",
-      "description": "C — Clarify: Problem definition, painkiller test, buy vs build, market research, SWOT, Go/No-Go.",
-      "path": "skills/phase1-clarify"
-    },
-    {
-      "name": "phase2-results",
-      "description": "R — Results: Stakeholder register, baseline measurement, success metrics, HITL zones.",
-      "path": "skills/phase2-results"
-    },
-    {
-      "name": "phase3-investigate",
-      "description": "I — Investigate: Process mapping, user journey maps, UX discovery, project goals.",
-      "path": "skills/phase3-investigate"
-    },
-    {
-      "name": "phase4-spec",
-      "description": "S — Spec: Tech stack, backlog, MVP prioritization, AI specs, sprint planning, CLAUDE.md.",
-      "path": "skills/phase4-spec"
-    },
-    {
-      "name": "phase5-prove",
-      "description": "P — Prove: Validate against Phase R baseline. Did the needle move?",
-      "path": "skills/phase5-prove"
+      "name": "crisp",
+      "description": "5-phase product discovery framework. Outcome-first methodology before you write a single line of code.",
+      "source": "https://github.com/radekamirko/C.R.I.S.P",
+      "category": "productivity",
+      "tags": ["pm", "ba", "discovery", "specification", "ai-builder"]
     }
   ]
 }
