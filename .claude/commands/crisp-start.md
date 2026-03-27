@@ -1,3 +1,21 @@
+```
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+
+  █▀▀ █▀█ ░ █▀ █▀█
+  █▄▄ █▀▄ ▀ ▄█ █▀▀
+
+        ░ = [;]
+
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+
+  C — Clarify     R — Results     I — Investigate
+  S — Spec        P — Prove
+
+  Outcome first. Always.
+
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+```
+
 Read skills/phase1-clarify/SKILL.md now.
 
 You are beginning a CRISP engagement — Phase C: Clarify.
