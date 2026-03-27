@@ -31,10 +31,10 @@ Built for:
 
 | Phase | Name | What it does |
 |---|---|---|
-| **C** | Clarify | Problem definition, painkiller test, magic wand, constraints, buy vs build, market research (external), value proposition canvas (external), SWOT (external), Go/No-Go |
-| **R** | Results | Stakeholder register (pre-fill + elicit), success metrics & baselines (separate doc), tradeoff negotiation |
+| **C** | Clarify | Problem definition, painkiller test, magic wand, constraints, buy vs build, market research — global + regional/local competitor pass (external), value proposition canvas (external), SWOT (external), Go/No-Go |
+| **R** | Results | Stakeholder register + HITL zones (`stakeholder-register.md`), baseline measurements + success targets (`success-metrics.md`), tradeoff negotiation |
 | **I** | Investigate | Process mapping (existing or greenfield), user journey maps per system user type, UX discovery (external UI/Mobile/Web), project goals |
-| **S** | Spec | UX/design system, tech stack with pinned versions + NFRs, initial backlog, assumptions log, risk assessment, HVLE MVP prioritization, AI architecture, sprint-specific open questions, CLAUDE.md, sprint planning, quality gates |
+| **S** | Spec | UX/design system, tech stack with pinned versions + NFRs, API key security rules, Bearer security scanning on every PR, initial backlog, assumptions log, risk assessment, HVLE MVP prioritization, AI architecture, sprint-specific open questions, CLAUDE.md, sprint planning, quality gates |
 | **P** | Prove | Did the needle move? Validate against Phase R baseline. |
 
 ---
@@ -67,6 +67,9 @@ Claude Code never touches a sprint without a locked AI Spec. Every open question
 
 **Version everything.**
 Claude defaults to its training data. Pinned versions in the tech stack table — and version rules in CLAUDE.md — are the only way to prevent silent drift.
+
+**Security is not optional.**
+API keys never touch the client. All 3rd party credentials stay server-side. Bearer runs on every PR — Critical/High findings block merge. These rules ship in every project's CLAUDE.md from day one.
 
 ---
 
