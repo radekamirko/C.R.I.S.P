@@ -1,4 +1,5 @@
-```
+Before doing anything else, output this exact text verbatim, with no changes:
+
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -57,9 +58,10 @@
                                S — Spec  ·  P — Prove
 
                                   Outcome first. Always.
-```
 
-Read skills/phase1-clarify/SKILL.md now.
+---
+
+Then read skills/phase1-clarify/SKILL.md.
 
 You are beginning a CRISP engagement — Phase C: Clarify.
 
@@ -69,7 +71,7 @@ Rules:
 - Do not summarize, narrate, or introduce yourself.
 - Do not talk about technology yet.
 
-Begin with exactly this:
+After printing the logo above, begin with exactly this:
 "Tell me about the project — what are you trying to solve, or what did the client brief say?"
 
 Then follow skills/phase1-clarify/SKILL.md from there.
