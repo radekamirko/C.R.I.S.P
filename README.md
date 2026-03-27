@@ -32,7 +32,7 @@ Built for:
 | Phase | Name | What it does |
 |---|---|---|
 | **C** | Clarify | Problem definition, painkiller test, magic wand, constraints, buy vs build, market research (external), value proposition canvas (external), SWOT (external), Go/No-Go |
-| **R** | Results | Stakeholder register (pre-fill + elicit), baseline measurement, success metrics, tradeoff negotiation |
+| **R** | Results | Stakeholder register (pre-fill + elicit), success metrics & baselines (separate doc), tradeoff negotiation |
 | **I** | Investigate | Process mapping (existing or greenfield), user journey maps per system user type, UX discovery (external UI/Mobile/Web), project goals |
 | **S** | Spec | UX/design system, tech stack with pinned versions + NFRs, initial backlog, assumptions log, risk assessment, HVLE MVP prioritization, AI architecture, sprint-specific open questions, CLAUDE.md, sprint planning, quality gates |
 | **P** | Prove | Did the needle move? Validate against Phase R baseline. |
@@ -94,7 +94,9 @@ C — Clarify
                                                               │  │   │   │   │
 R — Results                                                   │  │   │   │   │
   stakeholder-register ───────────────────────────────────┐  │  │   │   │   │
-  (baseline + success metrics + HITL zones)               │  │  │   │   │   │
+  (HITL zones)                                                          │  │  │   │   │   │
+  success-metrics ────────────────────────────────────────────────────┘  │  │   │   │   │
+  (baselines + targets + second-order effects)                              │  │   │   │   │
                                                           │  │  │   │   │   │
 I — Investigate                                           │  │  │   │   │   │
   process-flow ──────────────────────────────────────┐   │  │  │   │   │   │
@@ -130,7 +132,7 @@ crisp/
 │   │   ├── market-research.md       — C: TAM, competitor map, review mining, USP gap (external only)
 │   │   └── swot.md                  — C: pre-filled SWOT, client confirms (external only)
 │   ├── phase2-results/
-│   │   └── SKILL.md                 — R: stakeholder register (pre-fill + 3 elicitation moves), baseline, metrics
+│   │   └── SKILL.md                 — R: stakeholder register (HITL zones), success metrics & baselines (separate docs)
 │   ├── phase3-investigate/
 │   │   └── SKILL.md                 — I: process mapping, user journey maps (per system user type),
 │   │                                     UX discovery (3A–3E), project goals (pre-fill + elicit)
@@ -146,7 +148,8 @@ crisp/
     ├── value-proposition-canvas.md  — C: external products only — pre-filled from problem-statement + market-research
     ├── market-research.md           — C: TAM, competitors, feature standards, review insights, USP
     ├── swot.md                      — C: strengths, weaknesses, opportunities, threats
-    ├── stakeholder-register.md      — R: who is impacted, how, baseline metrics, success targets, HITL zones
+    ├── stakeholder-register.md      — R: who is impacted, how, HITL zones
+    ├── success-metrics.md           — R: baseline measurements, success targets, second-order effects
     ├── user-journey-map.md          — I: per system user type — steps, needs, feelings, pain points, delights
     ├── process-flow.md              — I: step-by-step process map
     ├── project-goals.md             — I: goals (incl. elicited), non-goals, success criteria

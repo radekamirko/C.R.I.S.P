@@ -63,6 +63,8 @@ Pre-fill what you can from Phase C process walkthrough and constraints. Ask the 
 
 > If you can't measure the baseline, you can't prove the outcome.
 
+Save to `docs/success-metrics.md` (Baseline Measurements section)
+
 ---
 
 ## Step 3: Desired Projection
@@ -82,6 +84,8 @@ Then present:
   > "Checkout <1min" → reduces cart abandonment → increases revenue
 - Set both quantitative and qualitative targets
 
+Save to `docs/success-metrics.md` (Success Targets + Second-Order Effects sections)
+
 ---
 
 ## Alignment Negotiation
@@ -96,13 +100,12 @@ Client sponsor speaks money and risk — use that language.
 
 ## Phase 2 Outputs
 
-> Save before closing Phase R. These files are inputs to Phases I and S.
+> Save both files before closing Phase R. They are inputs to Phases I, S, and P.
 
 | File | Contents | Required? |
 |---|---|---|
-| `docs/stakeholder-register.md` | All impacted parties, their stakes, baseline metrics, success targets, HITL zones | Always |
-
-> Baseline measurements and desired projections are captured inside `docs/stakeholder-register.md` — no separate file needed unless the project warrants a standalone metrics doc.
+| `docs/stakeholder-register.md` | All impacted parties, their stakes, HITL zones | Always |
+| `docs/success-metrics.md` | Baseline measurements, success targets, second-order effects, qualitative targets, client sign-off | Always |
 
 ---
 
@@ -110,9 +113,9 @@ Client sponsor speaks money and risk — use that language.
 - [ ] Stakeholder register pre-filled, elicited (3 moves), confirmed → `docs/stakeholder-register.md`
 - [ ] Hidden stakeholders surfaced (downstream consumers, compliance, support)
 - [ ] Impact ratings challenged — neutral validated, not assumed
-- [ ] HITL zones elicited from client, not inferred
-- [ ] Baseline measured across all key dimensions
-- [ ] Desired projections defined — relative where possible
-- [ ] Second-order impacts identified
+- [ ] HITL zones elicited from client, not inferred → saved in `docs/stakeholder-register.md`
+- [ ] Baseline measured across all key dimensions → `docs/success-metrics.md`
+- [ ] Desired projections defined — relative where possible → `docs/success-metrics.md`
+- [ ] Second-order impacts identified → `docs/success-metrics.md`
 - [ ] Tradeoffs presented and discussed
-- [ ] Quant and qual success criteria agreed and signed off by client sponsor
+- [ ] Quant and qual success criteria agreed and signed off by client sponsor → `docs/success-metrics.md`

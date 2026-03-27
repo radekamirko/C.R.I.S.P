@@ -13,9 +13,10 @@ This phase closes the loop back to Phase R. One question drives everything.
 
 ## What to Measure
 
-Pull the baseline from Phase R and measure against it:
-- **Quantitative:** Did the metric hit the target? (e.g. "quotes sent in 4min vs 4h before")
-- **Qualitative:** Re-run the survey or interview from Phase R baseline — did the score improve?
+Pull the baseline and targets from `docs/success-metrics.md` and measure against them:
+- **Quantitative:** Did each metric hit its target? (e.g. "quotes sent in 4min vs 4h before")
+- **Qualitative:** Re-run the survey or interview from the Phase R baseline frustration score — did it improve?
+- **Second-order effects:** Did the downstream impacts materialise? (e.g. cart abandonment dropped after checkout speed improved)
 
 ---
 
@@ -30,8 +31,9 @@ Pull the baseline from Phase R and measure against it:
 ---
 
 ## Exit Checklist
-- [ ] Quantitative metrics measured against Phase R baseline
-- [ ] Qualitative scores re-evaluated
+- [ ] Quantitative metrics measured against baselines in `docs/success-metrics.md`
+- [ ] Qualitative scores re-evaluated against Phase R frustration baseline
+- [ ] Second-order effects checked
 - [ ] Success / partial / fail called explicitly — no ambiguity
 - [ ] Learnings documented
 - [ ] Client signed off

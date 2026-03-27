@@ -112,9 +112,9 @@ The metrics came from Phase R. But goals are more than metrics — and some of t
 
 | Goals section | Source |
 |---|---|
-| Goals | `docs/stakeholder-register.md` — success targets and desired projections |
+| Goals | `docs/success-metrics.md` — success targets and desired projections |
 | Non-goals | `docs/problem-statement.md` — scope constraints, what was explicitly ruled out |
-| Success criteria | `docs/stakeholder-register.md` — quant and qual metrics agreed at Phase R sign-off |
+| Success criteria | `docs/success-metrics.md` — quant and qual metrics agreed at Phase R sign-off |
 
 Draft the goals doc from these sources before the session.
 

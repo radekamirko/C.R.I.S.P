@@ -19,6 +19,7 @@ All filled project documents live in `docs/`. Read from there, not from the blan
 |---|---|
 | `docs/problem-statement.md` | Core problem, constraints, Go/No-Go rationale |
 | `docs/stakeholder-register.md` | Who is impacted, what they need, human-in-the-loop zones |
+| `docs/success-metrics.md` | Baseline measurements, success targets, second-order effects — used for MVP criteria and risk context |
 | `docs/market-research.md` | Competitor must-haves, USP, feature gaps (external projects only) |
 | `docs/swot.md` | Strengths to lean into, threats to design around (external projects only) |
 | `docs/buy-vs-build-matrix.md` | Which tools are bought/configured vs built — informs tech stack |
@@ -244,7 +245,7 @@ Get confirmation. Mark these `MVP-BASELINE` in `docs/initial-backlog.md`. Do not
 
 ### Step 2: Elicit Business Value Criteria
 
-Pre-fill 3–4 criteria based on project context (pull from `docs/project-goals.md` and `docs/stakeholder-register.md`), then present them for correction — don't ask open-ended questions.
+Pre-fill 3–4 criteria based on project context (pull from `docs/project-goals.md`, `docs/success-metrics.md`, and `docs/stakeholder-register.md`), then present them for correction — don't ask open-ended questions.
 
 For **external products**, default criteria are:
 - Customer acquisition

@@ -15,7 +15,7 @@ _(Painkiller: what pain does it solve? For whom?)_
 
 
 ## Desired outcome
-_(From docs/stakeholder-register.md — what does success look like?)_
+_(From docs/success-metrics.md — success targets, baseline, second-order effects)_
 
 
 ## Constraints
@@ -130,7 +130,8 @@ _(Unresolved — Claude should flag these, not assume answers)_
 ### Phase 2 — Results
 | File | Status | Notes |
 |---|---|---|
-| `docs/stakeholder-register.md` | ✅ / ❌ | Includes baseline metrics + success criteria |
+| `docs/stakeholder-register.md` | ✅ / ❌ | Impacted parties, HITL zones |
+| `docs/success-metrics.md` | ✅ / ❌ | Baseline measurements, success targets, second-order effects |
 
 ### Phase 3 — Investigate
 | File | Status | Notes |

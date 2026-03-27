@@ -2,8 +2,11 @@
 
 **Project:** 
 **Date:** 
+**Linked to:** success-metrics.md · problem-statement.md
 
 ---
+
+## Stakeholders
 
 | Stakeholder | Role | Impact | Change for them | Notes |
 |---|---|---|---|---|
@@ -11,23 +14,9 @@
 
 ---
 
-## Baseline Measurements
+## Human-in-the-Loop Zones
+_(Where in this process would a fully automated decision be unacceptable? Elicited from client — not inferred.)_
 
-| Metric | Current value | Source | Notes |
-|---|---|---|---|
-| Time to complete | | | |
-| Cost of process | | | |
-| Error rate | | | |
-| Frustration score (1-10) | | | |
-| Manual steps count | | | |
-
----
-
-## Success Targets
-
-| Metric | Baseline | Target | Type |
-|---|---|---|---|
-| | | | % improvement / absolute |
-
-## Second-Order Effects
-
+| Process step | Why human must stay in loop | Owner |
+|---|---|---|
+| | | |
