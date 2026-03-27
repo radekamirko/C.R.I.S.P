@@ -73,6 +73,8 @@ _(Complete one block per external API or service. Skip section entirely if none.
 > Browse the official dev docs, extract what's needed, and pre-fill this section.
 > Only ask the client for what the docs don't answer (API keys, account-specific config).
 
+> **Security rule:** All credentials for this integration are server-side only. Never expose keys, tokens, or secrets to the client. The implementation spec must include a server-side API route or function that wraps all authenticated calls. Flag any design that routes secrets through the client as a blocker — do not proceed until resolved.
+
 ### Web Research Protocol (per integration)
 
 1. **Find the docs**

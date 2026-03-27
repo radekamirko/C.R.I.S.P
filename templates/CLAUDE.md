@@ -95,8 +95,11 @@ _(From docs/risk-assessment.md — where Claude must NOT act autonomously)_
 _(Non-negotiable — Claude must follow these always)_
 
 - Never log or expose PII
-- Never commit secrets or API keys
-- All environment variables verified present before use — fail loudly if missing
+- Never commit secrets or API keys — verify `.gitignore` covers `.env*` before first commit
+- All environment variables verified present before use — fail loudly if missing, never silently fallback
+- **Never expose API keys or credentials client-side.** All 3rd party API calls requiring secrets must be made server-side. The client calls your server route; your server calls the 3rd party.
+- Server-side secrets (Stripe, OpenAI, OAuth tokens, service role keys) must never appear in client bundles, `NEXT_PUBLIC_` vars, or mobile app source.
+- Bearer security scanner runs on every PR. Critical/High findings block merge — do not proceed until resolved.
 - 
 
 ## Current sprint

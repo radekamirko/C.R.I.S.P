@@ -98,6 +98,14 @@ Confirm versions with the client before writing a single line of code. Save the 
 - Cross-check `docs/buy-vs-build-matrix.md` — already-decided tools go here, not up for debate again
 - Prefer existing libraries and open source when time or budget is constrained
 
+**API Key & Secrets Rules — non-negotiable, copy into CLAUDE.md:**
+- **Never expose API keys, tokens, or secrets on the client side.** No exceptions. Not in React components, not in frontend env vars prefixed with `NEXT_PUBLIC_`, not in mobile app bundles.
+- All calls to 3rd party APIs that require credentials must be made server-side (API route, Edge function, backend service).
+- The client-side calls your server. Your server calls the 3rd party. The secret never leaves the server.
+- Wrong: `fetch('https://api.stripe.com/...', { headers: { Authorization: process.env.NEXT_PUBLIC_STRIPE_KEY } })` in a React component.
+- Right: `fetch('/api/stripe/charge', { body: JSON.stringify(payload) })` → server-side API route handles the Stripe call with `process.env.STRIPE_SECRET_KEY`.
+- Every secret goes into `.env.local` (or equivalent) — verified in `.gitignore` before first commit.
+
 ---
 
 ### Non-Functional Requirements — Elicit and Document
@@ -433,6 +441,26 @@ Work through the questions. Fill answers into the spec. One round. Lock it. No c
 - PR review standards defined
 - Unit test coverage requirements
 - Guardrail validation: hallucination risks, output validation, fallback logic
+
+**Security Scanning — Bearer (mandatory on every PR):**
+
+Add [Bearer](https://github.com/bearer/bearer) to the CI pipeline. It scans for security vulnerabilities, secret leaks, and OWASP-class issues on every pull request.
+
+Rules:
+- **Critical or High severity finding** → block the PR. Do not merge. Notify the developer immediately with the finding and remediation path.
+- **Medium severity** → flag in PR comments, require acknowledgement before merge.
+- **Low / Informational** → log, do not block.
+
+Setup (add to CI — GitHub Actions example):
+```yaml
+- name: Bearer Security Scan
+  uses: bearer/bearer-action@v2
+  with:
+    severity: critical,high
+    fail-on-severity: critical,high
+```
+
+If Bearer is not yet configured in the project, flag it as a setup task for Sprint 1 before any code ships.
 
 ---
 
