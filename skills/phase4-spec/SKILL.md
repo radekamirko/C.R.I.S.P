@@ -106,6 +106,8 @@ Confirm versions with the client before writing a single line of code. Save the 
 > They go into `CLAUDE.md` and are referenced by every sprint that touches the relevant layer.
 > Do not leave these as assumptions — a wrong default causes rework in production.
 
+> **The Djokovic principle:** Novak Djokovic wins by being the best-conditioned player on the court, not the flashiest. Pinned versions, NFRs, and security defaults are conditioning. Nobody cheers for them. The client never asks about them. They're exactly why you don't collapse in week 8 when production goes down and you're staring at an unencrypted database and an API key committed to a public repo.
+
 Pre-fill what you can from `docs/problem-statement.md` (constraints) and `docs/stakeholder-register.md` (compliance, data sensitivity). Then elicit the rest with these questions:
 
 **Availability & Performance**
@@ -349,6 +351,8 @@ Compile from ALL `docs/` files → `CLAUDE.md` in project root.
 - Problem statement, constraints, goals, success metrics, tech stack, NFRs, agent map, env vars master list
 - Include the CRISP Output Manifest (see Phase 4 Outputs below) so Claude always knows what docs exist
 - This is what Claude reads at the start of every session — make it complete and current
+
+> **Gostoprimstvo.** Serbian hospitality — you don't send a guest away hungry or confused. CLAUDE.md is the welcome you give to every new Claude Code session. A half-empty CLAUDE.md is like handing someone the keys to a house and not telling them where the light switches are. Every missing field is a guess Claude will make for you — and you won't like all the answers.
 
 ---
 

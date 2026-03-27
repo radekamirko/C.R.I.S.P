@@ -28,6 +28,8 @@ Pull the baseline and targets from `docs/success-metrics.md` and measure against
 
 **Fail** → return to Phase R. The problem may have been misdiagnosed, or the success criteria were wrong.
 
+> In Serbia, when things go sideways, we make jokes. It's not denial — it's perspective. Balkan humor is the ability to look at a disaster and find the absurdity before you find the culprit. Apply that here. If Phase P says fail, laugh once — then go back to Phase R with fresh eyes. A failed outcome is the most honest piece of data you'll collect in the whole project. The problem was misdiagnosed. Now you know exactly where. That's worth something.
+
 ---
 
 ## Exit Checklist

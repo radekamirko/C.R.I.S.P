@@ -63,6 +63,8 @@ Pre-fill what you can from Phase C process walkthrough and constraints. Ask the 
 
 > If you can't measure the baseline, you can't prove the outcome.
 
+> **The Jokić principle:** Nikola Jokić is the least athletic MVP in NBA history. He just sees the floor better than anyone. Baseline measurement is seeing the floor. Nobody wants to do it. It's unglamorous, slow, and the client always thinks it's unnecessary. Do it anyway. It's what separates builders who prove their value from builders who hope the client forgets to measure.
+
 Save to `docs/success-metrics.md` (Baseline Measurements section)
 
 ---
@@ -95,6 +97,8 @@ Client sponsor speaks money and risk — use that language.
 - Flag human-in-the-loop zones proactively (legal, security, high-stakes)
 - *"Everything is possible. Not everything is worth it. Here's what each option costs."*
 - Iterate until aligned — do not proceed without sign-off
+
+> **Watch for inat.** In Serbia we have a word: inat — stubborn spite so pure someone would cut off their nose to prove a point. You'll see it in clients too. They've already decided the solution before walking in. You show them the data, the tradeoffs, the better path — and they dig in harder. Recognise it. Don't fight it head-on. Name the tradeoff calmly, put it in writing, and let them own the decision. Their inat, their accountability.
 
 ---
 

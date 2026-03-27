@@ -7,6 +7,9 @@ description: The Mileva Method (CRISP) — Phase 1: Clarify. Problem definition,
 
 Do not discuss technology, solutions, or tools until this phase is complete.
 
+> Nikola Tesla had 300 patents and died broke. Vision without validation is just expensive art.
+> Clients arrive with solutions. Your job is to find the problem underneath.
+
 ## Output Convention
 
 Every filled template produced during CRISP lives in the project's `docs/` folder — not in the CRISP templates directory.
@@ -46,6 +49,9 @@ Use this early, before they've started self-editing. The answer is almost always
 - Painkiller = costs them daily in time/money/risk → proceed
 - Multivitamin = nice to have, life slightly better → deprioritize or kill
 
+> **War story:** Had a client dead serious about a streaming platform for amateur boxing. USP? "Nobody's doing it." Well. Maybe there's a reason. ESPN+ adds a category and you're done. We went back to the real problem — nobody is connecting amateur fighters with promoters and matchmakers. Pivoted to a matchmaking platform. That's where the leverage actually lived.
+> The absence of competition isn't a green light. Sometimes it's a warning sign.
+
 **Internal vs External**
 - Internal: stakeholders, ROI measurement, employee ideal state
 - External: competitors, TAM, USP → run Market Research + SWOT (see below)
@@ -66,6 +72,21 @@ Use this early, before they've started self-editing. The answer is almost always
 > "Currently, [who] are spending [cost/time/money] doing [thing] because [root cause]."
 
 Both sides must agree on this sentence before Phase C closes. If they can't agree on the sentence, they definitely can't agree on the solution.
+
+---
+
+## Go / No-Go
+
+Before closing Phase C, call it explicitly.
+
+**The CEO test:**
+> "'The CEO wants this built.' Why? 'Competitors have it.' So what? Does it serve your objectives — your vision, your mission, what you're actually trying to achieve? No? We don't build it."
+
+Features justified by "competitors have it" and nothing else are the most expensive features you'll ever ship. They solve the competitor's problem, not yours.
+
+No-Go is not failure. It's the fastest possible win. Lose the project, save the client six weeks.
+
+**No-Go is a feature.** If a free tool solves it, say so. Lose the project, win the trust.
 
 ---
 
@@ -140,5 +161,3 @@ Output → `docs/value-proposition-canvas.md`
 - [ ] **[External only]** Value Proposition Canvas pre-filled and confirmed → `docs/value-proposition-canvas.md`
 - [ ] **[External only]** SWOT complete → `docs/swot.md`
 - [ ] Go / No-Go called
-
-**No-Go is a feature.** If a free tool solves it, say so. Lose the project, win the trust.

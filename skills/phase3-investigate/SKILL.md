@@ -19,6 +19,9 @@ Shadow the actual person doing the work. Step by step, no skipping.
 
 > Goal: expose the real process, not the documented one. They are always different.
 
+> **War story:** Client wanted drag-and-drop category sorting for her e-commerce shop. A week of dev work, minimum. I asked why. "I just want to change the order for the season." I asked how she wanted to reorder it. She told me. Dev made the change in 4 minutes — one config update. The drag-and-drop feature never got built.
+> Shadow the real process before you spec anything. The ask is almost never the need.
+
 ### Track B: New Process (Greenfield)
 Design one step at a time:
 - Input parameters — what comes in?
@@ -107,6 +110,10 @@ Save one section per user type → `docs/user-journey-map.md`
 ## Deliverable 3: Project Goals — Pre-fill, Elicit, Confirm
 
 The metrics came from Phase R. But goals are more than metrics — and some of the most important goals are never written down until someone asks the right questions.
+
+> **War story:** Had a founder with an MVP at zero traction wanting to plan post-MVP features. Something more advanced, more differentiated. I stopped him. Let's look at what's happening right now — why aren't people using what you have?
+> Turned out the whole product was built on the assumptions of one founder who wasn't even a subject matter expert in the space. Not a single user interview done. The flows were miles away from how users actually wanted to work. We reworked the core before touching the roadmap.
+> Don't add floors to a building with a cracked foundation. Validate the goals against reality before you chase the vision.
 
 **Step 1: Pre-fill from Phase R outputs**
 
