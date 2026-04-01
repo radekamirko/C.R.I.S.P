@@ -45,7 +45,7 @@ Once Claude is running from the right folder:
 
 **Any Claude (no slash commands):**
 ```
-Read skills/phase1-clarify/SKILL.md and begin Phase C.
+Read .claude/skills/phase1-clarify/SKILL.md and begin Phase C.
 Don't explain anything. Just ask me about the project.
 ```
 

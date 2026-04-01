@@ -6,11 +6,11 @@ A BA/PM framework for AI implementors. Guides you through structured discovery, 
 
 | Phase | Name | Skill |
 |---|---|---|
-| C | Clarify — Problem definition | `skills/phase1-clarify/` |
-| R | Results — Outcome alignment | `skills/phase2-results/` |
-| I | Investigate — Process mapping | `skills/phase3-investigate/` |
-| S | Spec — Build ready | `skills/phase4-spec/` |
-| P | Prove — Validate | `skills/phase5-prove/` |
+| C | Clarify — Problem definition | `.claude/skills/phase1-clarify/` |
+| R | Results — Outcome alignment | `.claude/skills/phase2-results/` |
+| I | Investigate — Process mapping | `.claude/skills/phase3-investigate/` |
+| S | Spec — Build ready | `.claude/skills/phase4-spec/` |
+| P | Prove — Validate | `.claude/skills/phase5-prove/` |
 
 ## How to use
 
