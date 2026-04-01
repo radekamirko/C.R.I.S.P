@@ -9,7 +9,7 @@ CRISP fixes that. Five phases, in order, no skipping.
 
 ## Video walkthrough
 
-[![CRISP Setup Guide](https://cdn.loom.com/sessions/thumbnails/ecc9d504bd104c7fb1123d42f0b72ff9-4ff6030ce7451c43.gif)](https://www.loom.com/share/ecc9d504bd104c7fb1123d42f0b72ff9)
+[![CRISP Setup Guide](https://cdn.loom.com/sessions/thumbnails/ecc9d504bd104c7fb1123d42f0b72ff9-4ff6030ce7451c43-full-play.gif)](https://www.loom.com/share/ecc9d504bd104c7fb1123d42f0b72ff9)
 
 ---
 
