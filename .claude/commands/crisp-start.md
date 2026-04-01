@@ -1,3 +1,7 @@
+---
+name: crisp-start
+description: Begin a CRISP product discovery session — Phase C (Clarify)
+---
 Before doing anything else, output this exact text verbatim:
 
   C — Clarify  ·  R — Results  ·  I — Investigate
