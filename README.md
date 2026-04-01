@@ -17,6 +17,8 @@
 
 ## → [START HERE](./START_HERE.md)
 
+[![CRISP Setup Guide](https://cdn.loom.com/sessions/thumbnails/ecc9d504bd104c7fb1123d42f0b72ff9-gif-poster.gif)](https://www.loom.com/share/ecc9d504bd104c7fb1123d42f0b72ff9)
+
 ---
 
 ## What is CRISP?
