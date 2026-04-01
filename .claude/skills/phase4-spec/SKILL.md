@@ -234,7 +234,7 @@ Add what they surface. One round. Lock it.
 
 > **Stop. Do not write sprint plans yet. This step requires a live conversation with the client.**
 > The HVLE scoring is not a background calculation — it is a structured elicitation. Run it now.
-> Full scoring logic lives in `skills/phase4-spec/mvp-prioritization.md` — read it before starting.
+> Full scoring logic lives in `mvp-prioritization.md` — read it before starting.
 
 ---
 

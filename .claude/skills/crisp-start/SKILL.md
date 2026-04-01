@@ -11,7 +11,7 @@ Before doing anything else, output this exact text verbatim:
 
 ---
 
-Then read skills/phase1-clarify/SKILL.md.
+Then read ../phase1-clarify/SKILL.md.
 
 You are beginning a CRISP engagement — Phase C: Clarify.
 
@@ -24,4 +24,4 @@ Rules:
 After printing the text above, begin with exactly this:
 "Tell me about the project — what are you trying to solve, or what did the client brief say?"
 
-Then follow skills/phase1-clarify/SKILL.md from there.
+Then follow ../phase1-clarify/SKILL.md from there.

@@ -128,8 +128,7 @@ crisp/
 ├── START_HERE.md                    — start here (human-readable + paste-to-Claude entry point)
 ├── CLAUDE.md                        — master CLAUDE.md template (compile per project)
 ├── .claude/skills/
-│   └── crisp-start/SKILL.md         — /crisp-start skill for Claude Code
-├── skills/
+│   ├── crisp-start/SKILL.md         — /crisp-start entry point skill for Claude Code
 │   ├── phase1-clarify/
 │   │   ├── SKILL.md                 — C: problem definition, elicitation moves, VPC, Go/No-Go
 │   │   ├── market-research.md       — C: TAM, competitor map, review mining, USP gap (external only)

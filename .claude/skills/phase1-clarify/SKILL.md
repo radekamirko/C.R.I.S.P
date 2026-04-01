@@ -94,7 +94,7 @@ No-Go is not failure. It's the fastest possible win. Lose the project, save the 
 
 If the project is an **external product**, two additional steps are mandatory before Phase C closes:
 
-### 1. Market Research → `skills/phase1-clarify/market-research.md`
+### 1. Market Research → `market-research.md`
 Run full market research: TAM sizing, competitor mapping, feature standards (must-have vs differentiator vs gap), review mining (Reddit, G2, Product Hunt), USP gap analysis.
 Output → `docs/market-research.md`
 
@@ -102,7 +102,7 @@ This feeds directly into:
 - Phase R: success metrics (market context shapes what "good" looks like)
 - Phase S: MVP baseline (competitor must-haves), backlog, USP
 
-### 2. SWOT → `skills/phase1-clarify/swot.md`
+### 2. SWOT → `swot.md`
 Run after market research. Pre-fill S/W from problem statement and constraints. Pre-fill O/T from market research findings, competitor intelligence, and industry trends.
 Elicit client input — let them correct, not originate.
 Output → `docs/swot.md`

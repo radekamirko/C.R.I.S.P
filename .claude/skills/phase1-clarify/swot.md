@@ -81,5 +81,5 @@ Quick scan after client session to fill any gaps:
 - [ ] Client has reviewed, pushed back, and confirmed
 - [ ] Output saved to `templates/swot.md`
 
-**Hand off to:** Phase R — Results (`skills/phase2-results/`)
+**Hand off to:** Phase R — Results (`../phase2-results/`)
 Feed USP from market research + SWOT insights into positioning work in Phase S.

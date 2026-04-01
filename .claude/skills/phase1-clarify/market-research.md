@@ -149,4 +149,4 @@ Their corrections are signal. Write them down.
 - [ ] Client has confirmed or corrected the research
 - [ ] Output saved to `docs/market-research.md`
 
-**Hand off to:** Phase C SWOT (`skills/phase1-clarify/swot.md`) — feed this research directly in.
+**Hand off to:** Phase C SWOT (`swot.md`) — feed this research directly in.
