@@ -40,6 +40,7 @@ _(From Phase 4B tech stack proposal — pinned versions are mandatory)_
 | Layer | Tool | Pinned version | Notes |
 |---|---|---|---|
 | | | | |
+| **Harness** | _(e.g. Claude Code, open-source framework)_ | | Open source: Yes/No — Memory ownership: Client/Provider |
 
 **Version rules — Claude must follow these every session:**
 - Use only the versions listed above. Do not upgrade silently or assume a newer version.
@@ -99,8 +100,16 @@ _(Non-negotiable — Claude must follow these always)_
 - All environment variables verified present before use — fail loudly if missing, never silently fallback
 - **Never expose API keys or credentials client-side.** All 3rd party API calls requiring secrets must be made server-side. The client calls your server route; your server calls the 3rd party.
 - Server-side secrets (Stripe, OpenAI, OAuth tokens, service role keys) must never appear in client bundles, `NEXT_PUBLIC_` vars, or mobile app source.
-- Bearer security scanner runs on every PR. Critical/High findings block merge — do not proceed until resolved.
-- 
+- **Bearer security scanner runs on every PR. Critical/High findings BLOCK merge. Do not proceed, do not merge, do not work around — fix the finding first.** Medium findings require acknowledgement before merge. Low/Info are logged only.
+- Logging is mandatory for all API endpoints and background jobs. No PII in logs. No secrets in logs. See `docs/logging-spec.md`.
+
+## Logging
+_(From docs/logging-spec.md)_
+
+- Log level in production: `INFO` (DEBUG disabled)
+- Log destination: 
+- Alerting: 
+- **Sprint quality gate:** Before marking a sprint complete — confirm logging is implemented for all new endpoints and jobs, and no PII or secrets appear in logs.
 
 ## Current sprint
 _(Update this at the start of each sprint)_
@@ -154,6 +163,8 @@ _(Unresolved — Claude should flag these, not assume answers)_
 | `docs/risk-assessment.md` | ✅ / ❌ | |
 | `docs/mvp-prioritization.md` | ✅ / ❌ | HVLE scores + MVP line |
 | `docs/sprint-plan.md` | ✅ / ❌ | |
+| `docs/logging-spec.md` | ✅ / ❌ | Mandatory — log levels, destinations, PII rules |
+| `docs/data-mapping.md` | ✅ / ❌ / N/A | Required if any feature extracts/transforms structured data |
 | `docs/ai-spec-[sprint/feature].md` | ✅ / ❌ | One per sprint — list all below |
 | `docs/ai-spec-[integration].md` | ✅ / ❌ / N/A | One per 3rd party service — list all below |
 

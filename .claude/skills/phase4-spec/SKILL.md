@@ -98,6 +98,40 @@ Confirm versions with the client before writing a single line of code. Save the 
 - Cross-check `docs/buy-vs-build-matrix.md` — already-decided tools go here, not up for debate again
 - Prefer existing libraries and open source when time or budget is constrained
 
+
+### Open Source Library Research — mandatory for every dependency
+
+> Claude's training data has a cutoff. A library that was "actively maintained" in training may have had zero commits in 18 months. One search prevents months of dependency debt.
+
+For every open source library in the tech stack, run this evaluation before confirming the choice:
+
+**Step 1: Search**
+Search GitHub: `[what you need] github library` (e.g. "pdf export github library", "react data table github")
+Evaluate the top 3–5 results.
+
+**Step 2: Score each candidate**
+
+| Criteria | What to check |
+|---|---|
+| ⭐ Stars | Community signal — >500 for a production dependency |
+| 🍴 Forks | Active derivative use — meaningful number relative to stars |
+| 📅 Last commit | Must be within 6 months for active maintenance |
+| 🐛 Issues | Open/closed ratio — high open, low closed = warning sign |
+| 📖 Documentation | Is it actually usable from docs alone? |
+| ⚖️ License | MIT/Apache-2.0/BSD = free for commercial. GPL = check carefully. |
+| 👥 Contributors | Solo maintainer = higher bus factor risk |
+
+**Step 3: Record decision**
+
+Add to the tech stack table:
+- Chosen library with pinned version
+- Why it was chosen over the alternatives (1 sentence)
+- Alternatives considered and why they were rejected
+
+> Present to client if the choice is non-obvious:
+> "I evaluated [A], [B], and [C] for [use case]. I'm recommending [A] — [stars], last commit [date], [license]. [B] was last updated [date] so I ruled it out. Agree?"
+
+
 **API Key & Secrets Rules — non-negotiable, copy into CLAUDE.md:**
 - **Never expose API keys, tokens, or secrets on the client side.** No exceptions. Not in React components, not in frontend env vars prefixed with `NEXT_PUBLIC_`, not in mobile app bundles.
 - All calls to 3rd party APIs that require credentials must be made server-side (API route, Edge function, backend service).
@@ -461,6 +495,24 @@ Setup (add to CI — GitHub Actions example):
 ```
 
 If Bearer is not yet configured in the project, flag it as a setup task for Sprint 1 before any code ships.
+If Bearer is not yet configured in the project, flag it as a setup task for Sprint 1 before any code ships.
+
+---
+
+### Logging Spec — mandatory for every project
+
+> Logging is what tells you what happened when production breaks at 2am. Define it before the build, not after.
+
+Write `docs/logging-spec.md` using `/templates/logging-spec.md`. This is a mandatory Phase S output — not optional.
+
+Key decisions to make:
+- Log levels per environment (production = INFO minimum, DEBUG off by default)
+- What always gets logged: every API request, auth event, background job, unhandled exception, 3rd party call, critical DB write
+- What never gets logged: passwords, API keys, secrets, PII (unless masked and compliance-required)
+- Log format: structured JSON with `requestId`, `level`, `event`, `timestamp`
+- Log destination: console (dev), file + aggregation service (production)
+
+Reference `docs/logging-spec.md` in `CLAUDE.md` and in every sprint's AI Spec quality gates.
 
 ---
 
@@ -477,10 +529,33 @@ If Bearer is not yet configured in the project, flag it as a setup task for Spri
 | `docs/assumptions-log.md` | Logged assumptions and resolution status | Always |
 | `docs/risk-assessment.md` | Risks, mitigations, security posture, legal/compliance, HITL zones | Always |
 | `docs/mvp-prioritization.md` | HVLE scoring table, weighted criteria, priority scores, MVP line | Always |
+| `docs/logging-spec.md` | Log levels, what to log, PII rules, format, destination, alerting | Always |
 | `docs/ai-spec-[name].md` | One per sprint — pre-filled, open questions resolved, locked | Always (one per sprint) |
 | `docs/ai-spec-[service].md` | Integration spec per 3rd party service | Per integration |
 | `docs/sprint-plan.md` | Sprint sequence, goals, features per sprint, quality gates | Always |
 | `CLAUDE.md` | Compiled project context incl. NFRs — lives in project root, not docs/ | Always |
+
+---
+
+## Phase 4 Complete — Starting the Build
+
+When all exit checklist items are checked and all AI Specs are locked, deliver this message:
+
+---
+
+**Your spec is complete. CRISP Phase S is done.**
+
+Here's what's ready:
+- Sprint plan → `docs/sprint-plan.md`
+- AI Spec for Sprint 1 → `docs/ai-spec-[sprint-name].md`
+- CLAUDE.md compiled → project root
+
+**To start building right now, just say:**
+> *"Start Sprint 1"*
+
+Claude Code will read the AI Spec and begin. No new setup, no mode switching, no additional steps. The spec is the handoff.
+
+If you want to review what's in scope for Sprint 1 first, check `docs/ai-spec-[sprint-name].md`. Everything the build needs is already in there.
 
 ---
 
@@ -498,6 +573,7 @@ If Bearer is not yet configured in the project, flag it as a setup task for Spri
 - [ ] Known breaking changes identified and flagged to client
 - [ ] Pinned version table saved to CLAUDE.md with version rules
 - [ ] Client confirmed versions don't conflict with existing code or infra
+- [ ] Every open source library evaluated: stars, last commit, license, alternatives rejected with reason
 
 **NFRs**
 - [ ] Availability / uptime target defined
@@ -507,6 +583,11 @@ If Bearer is not yet configured in the project, flag it as a setup task for Spri
 - [ ] Cloud provider and region decided (data residency cross-checked)
 - [ ] Backup, recovery, and monitoring expectations set
 - [ ] NFRs saved to `docs/problem-statement.md` and referenced in `CLAUDE.md`
+
+**Logging**
+- [ ] Logging spec written → `docs/logging-spec.md`
+- [ ] Log levels, format, destination, PII rules defined
+- [ ] Logging spec referenced in `CLAUDE.md`
 
 **3rd Party Integrations**
 - [ ] Every 3rd party service in tech stack identified and tagged `[INTEGRATION REQUIRED]`
@@ -533,11 +614,11 @@ If Bearer is not yet configured in the project, flag it as a setup task for Spri
 - [ ] Backlog updated with MVP / Post-MVP / Dependency tags → `docs/initial-backlog.md`
 
 **AI Architecture**
-- [ ] `CLAUDE.md` compiled from all `docs/` outputs — includes NFRs and output manifest
+- [ ] `CLAUDE.md` compiled from all `docs/` outputs — includes NFRs, logging spec, and output manifest
 - [ ] Folder structure defined
 - [ ] Agent/skill map complete — one `SKILL.md` per agent in project `skills/` folder
 - [ ] AI Specs pre-filled, sprint-specific open questions generated and resolved → `docs/ai-spec-[name].md`
 - [ ] No open questions remain in any locked spec
 - [ ] Sprint plan sequenced using MVP prioritization + dependency map → `docs/sprint-plan.md`
-- [ ] Quality gates defined per sprint
+- [ ] Quality gates defined per sprint (incl. logging gate)
 - [ ] Integration specs completed before sprints that depend on them

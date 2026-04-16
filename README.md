@@ -82,6 +82,7 @@ API keys never touch the client. All 3rd party credentials stay server-side. Bea
 3. Run phases in order — do not skip
 4. Check the exit checklist before moving to the next phase
 5. Write one AI Spec per sprint before building anything
+6. After Phase S: just say "Start Sprint 1" — Claude Code reads the AI Spec and starts building. No new setup needed.
 
 ---
 
@@ -167,6 +168,8 @@ crisp/
     ├── sprint-plan.md               — S: sprint sequencing from MVP tags + dependency map
     ├── ai-spec.md                   — S: per-sprint brief — pre-filled, open questions, version deps, locked before build
     ├── agent-skill.md               — S: template for each project agent SKILL.md
+    ├── logging-spec.md              — S: log levels, PII rules, format, destination, alerting (mandatory)
+    ├── data-mapping.md              — I/S: structured data extraction field mapping, edge cases, validation
     └── CLAUDE.md                    — S: compiled project context — pinned versions, NFRs, output manifest
 ```
 

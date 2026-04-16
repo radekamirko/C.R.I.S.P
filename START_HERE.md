@@ -72,6 +72,8 @@ If you can't check every box, you're not done.
 
 One rule: never hand a sprint to Claude Code without a locked AI Spec.
 
+After Phase S: just say "Start Sprint 1" — Claude Code reads the AI Spec and starts building. No new setup needed, no mode switching.
+
 ---
 
 *Outcome first. Always.*
