@@ -145,6 +145,32 @@ Output → `docs/value-proposition-canvas.md`
 | `docs/market-research.md` | TAM, competitors, feature standards, USP | External only |
 | `docs/value-proposition-canvas.md` | USP and positioning | External only |
 | `docs/swot.md` | Strengths, weaknesses, opportunities, threats | External only |
+| `docs/decisions.md` | Log of key decisions made in Phase C | Always |
+
+---
+
+## Decision Logging — Phase C
+
+> Create `docs/decisions.md` using `/templates/decisions.md` at the start of Phase C if it doesn't exist.
+> Log every significant decision as it happens — do not batch at the end.
+
+**Log these decisions in Phase C:**
+
+- **Go/No-Go** — what was called and why
+- **Internal vs External** — which it is and the reason
+- **Buy vs Build choices** — every item in the matrix with the rationale
+- **Constraints** — any hard constraint that ruled out an option
+- **Scope decisions** — anything explicitly included or excluded
+
+Format:
+```
+### Go/No-Go — [Project Name]
+**Phase:** C
+**Decision:** Go / No-Go
+**Why:** [reason — constraint, painkiller test result, CEO test outcome]
+**Alternatives considered:** [what else was discussed]
+**Source:** Client / You / Both
+```
 
 ---
 
@@ -161,3 +187,4 @@ Output → `docs/value-proposition-canvas.md`
 - [ ] **[External only]** Value Proposition Canvas pre-filled and confirmed → `docs/value-proposition-canvas.md`
 - [ ] **[External only]** SWOT complete → `docs/swot.md`
 - [ ] Go / No-Go called
+- [ ] Key decisions logged → `docs/decisions.md`

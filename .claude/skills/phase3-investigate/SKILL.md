@@ -312,6 +312,19 @@ Save to `docs/data-mapping.md` using the template in `/templates/data-mapping.md
 
 ---
 
+## Decision Logging — Phase I
+
+> Update `docs/decisions.md` with decisions made in this phase before closing.
+
+**Log these decisions in Phase I:**
+
+- **Process track chosen** — Track A (existing) or Track B (greenfield), and why
+- **User types included/excluded from journey maps** — who got a map and who didn't, with reason
+- **Navigation pattern** (if UX discovery ran) — which pattern was chosen and why
+- **Data mapping scope** — which features triggered data mapping and what was decided on edge case handling
+
+---
+
 ## Exit Checklist
 - [ ] Process fully mapped (Track A or B) → `docs/process-flow.md`
 - [ ] Every tool, input, output, and decision point documented
@@ -335,3 +348,4 @@ Save to `docs/data-mapping.md` using the template in `/templates/data-mapping.md
   - [ ] Navigation pattern decided (3C)
   - [ ] High-stakes screens identified with emotion + primary action (3D)
   - [ ] Friction and delight moments made design-actionable (3E)
+- [ ] Key decisions logged → `docs/decisions.md`

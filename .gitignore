@@ -1,0 +1,8 @@
+# Project outputs — filled docs belong in the project using CRISP, not in this repo
+docs/
+
+# OS
+.DS_Store
+
+# Node (if any tooling is added)
+node_modules/

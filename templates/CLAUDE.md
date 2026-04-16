@@ -165,6 +165,9 @@ _(Unresolved — Claude should flag these, not assume answers)_
 | `docs/sprint-plan.md` | ✅ / ❌ | |
 | `docs/logging-spec.md` | ✅ / ❌ | Mandatory — log levels, destinations, PII rules |
 | `docs/data-mapping.md` | ✅ / ❌ / N/A | Required if any feature extracts/transforms structured data |
+| `docs/analytics-spec.md` | ✅ / ❌ / N/A (non-UI) | GA4 event map, conversion goals, PII rules |
+| `docs/landing-page-brief.md` | ✅ / ❌ / N/A (internal) | Hero copy, sections, visual direction |
+| `docs/decisions.md` | ✅ / ❌ | Decision log across all phases |
 | `docs/ai-spec-[sprint/feature].md` | ✅ / ❌ | One per sprint — list all below |
 | `docs/ai-spec-[integration].md` | ✅ / ❌ / N/A | One per 3rd party service — list all below |
 

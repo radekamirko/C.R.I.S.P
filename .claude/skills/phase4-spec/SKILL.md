@@ -530,6 +530,9 @@ Reference `docs/logging-spec.md` in `CLAUDE.md` and in every sprint's AI Spec qu
 | `docs/risk-assessment.md` | Risks, mitigations, security posture, legal/compliance, HITL zones | Always |
 | `docs/mvp-prioritization.md` | HVLE scoring table, weighted criteria, priority scores, MVP line | Always |
 | `docs/logging-spec.md` | Log levels, what to log, PII rules, format, destination, alerting | Always |
+| `docs/analytics-spec.md` | GA4 setup, event map, conversion goals, PII rules, sprint gates | External products with UI only |
+| `docs/landing-page-brief.md` | Hero copy, sections, CTAs, visual direction — compiled from all prior docs | External products only |
+| `docs/decisions.md` | Updated with Phase S decisions | Always |
 | `docs/ai-spec-[name].md` | One per sprint — pre-filled, open questions resolved, locked | Always (one per sprint) |
 | `docs/ai-spec-[service].md` | Integration spec per 3rd party service | Per integration |
 | `docs/sprint-plan.md` | Sprint sequence, goals, features per sprint, quality gates | Always |
@@ -537,7 +540,52 @@ Reference `docs/logging-spec.md` in `CLAUDE.md` and in every sprint's AI Spec qu
 
 ---
 
-## Phase 4 Complete — Starting the Build
+### Analytics Spec — External UI/Mobile/Web products
+
+> Every success metric from Phase R needs a GA4 event that fires when it happens.
+> If you're building a UI product and you don't define analytics before the build, you'll ship blind.
+
+Write `docs/analytics-spec.md` using `/templates/analytics-spec.md`.
+
+Key steps:
+1. Pull every success target from `docs/success-metrics.md` — map each to a GA4 conversion event
+2. Map all core user actions from `docs/user-journey-map.md` to events
+3. Define parameters per event — what context is captured alongside the event name
+4. Apply PII rules — no names, emails, or personal data in event parameters ever
+5. Assign each event to the sprint that builds the relevant feature
+
+Reference `docs/analytics-spec.md` in every sprint's AI Spec so Claude implements tracking for that sprint's features by default.
+
+---
+
+### Landing Page Brief — External products only
+
+> By Phase S, you already have everything needed for a landing page: value prop, USP, target audience, visual direction, feature breakdown. Compiling it takes 20 minutes. Not compiling it means the client builds it from scratch with none of this context.
+
+Write `docs/landing-page-brief.md` using `/templates/landing-page-brief.md`.
+
+Pre-fill from:
+- `docs/value-proposition-canvas.md` → hero headline, value prop, pain points
+- `docs/market-research.md` → USP, target audience description
+- `docs/ux-discovery.md` → visual direction, tone, non-negotiable feeling
+- `docs/stakeholder-register.md` → who the page speaks to
+- `docs/initial-backlog.md` → feature highlights (benefits framing, not feature list)
+
+Present to client for one round of copy corrections before handing off.
+
+---
+
+### Decision Logging — Phase S
+
+> Update `docs/decisions.md` with decisions made in Phase S before closing.
+
+**Log these decisions in Phase S:**
+- **Tech stack choices** — every layer, why that tool, what was rejected and why
+- **Open source library choices** — chosen library, alternatives evaluated, rationale
+- **MVP line** — where it was drawn, what was pushed to post-MVP and why
+- **NFR decisions** — uptime target, deployment approach, any tradeoffs
+- **Harness choice** — open or closed, memory ownership decision if agent in scope
+
 
 When all exit checklist items are checked and all AI Specs are locked, deliver this message:
 
@@ -622,3 +670,19 @@ If you want to review what's in scope for Sprint 1 first, check `docs/ai-spec-[s
 - [ ] Sprint plan sequenced using MVP prioritization + dependency map → `docs/sprint-plan.md`
 - [ ] Quality gates defined per sprint (incl. logging gate)
 - [ ] Integration specs completed before sprints that depend on them
+- [ ] Key decisions logged → `docs/decisions.md`
+
+**Analytics & Landing Page**
+- [ ] **[External UI/Mobile/Web]** Analytics spec written → `docs/analytics-spec.md`
+  - [ ] Every Phase R success metric mapped to a GA4 conversion event
+  - [ ] All core user actions from journey map mapped to events
+  - [ ] PII rules applied — no personal data in event parameters
+  - [ ] Events assigned to sprints
+- [ ] **[External product]** Landing page brief compiled → `docs/landing-page-brief.md`
+  - [ ] Hero headline and value prop drafted
+  - [ ] Pain points from VPC included
+  - [ ] Visual direction from ux-discovery applied
+  - [ ] Client reviewed and copy corrections made
+
+**Progress Report**
+- [ ] Progress report generated → `docs/progress-report-[YYYY-MM-DD].md` (optional — generate on request or before handoff)

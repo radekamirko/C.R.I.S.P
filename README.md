@@ -169,6 +169,10 @@ crisp/
     ├── ai-spec.md                   — S: per-sprint brief — pre-filled, open questions, version deps, locked before build
     ├── agent-skill.md               — S: template for each project agent SKILL.md
     ├── logging-spec.md              — S: log levels, PII rules, format, destination, alerting (mandatory)
+    ├── analytics-spec.md            — S: GA4 event map, conversion goals, PII rules, sprint gates (external UI only)
+    ├── landing-page-brief.md        — S: hero copy, sections, CTAs, visual direction (external products only)
+    ├── decisions.md                 — C/R/I/S: decision log across all phases
+    ├── progress-report.md           — any phase: status summary, decisions, open questions, next step
     ├── data-mapping.md              — I/S: structured data extraction field mapping, edge cases, validation
     └── CLAUDE.md                    — S: compiled project context — pinned versions, NFRs, output manifest
 ```

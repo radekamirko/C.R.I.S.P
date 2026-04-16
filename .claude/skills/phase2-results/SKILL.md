@@ -110,6 +110,20 @@ Client sponsor speaks money and risk — use that language.
 |---|---|---|
 | `docs/stakeholder-register.md` | All impacted parties, their stakes, HITL zones | Always |
 | `docs/success-metrics.md` | Baseline measurements, success targets, second-order effects, qualitative targets, client sign-off | Always |
+| `docs/decisions.md` | Updated with Phase R decisions | Always |
+
+---
+
+## Decision Logging — Phase R
+
+> Update `docs/decisions.md` with decisions made in this phase before closing.
+
+**Log these decisions in Phase R:**
+
+- **HITL zones** — every zone the client named, and why
+- **Baseline measurement method** — how you measured the current state, what data sources were used
+- **Success targets** — what was agreed and any tradeoffs discussed to get there
+- **Stakeholder impact ratings** — any that were challenged and revised, with the reason
 
 ---
 
@@ -123,3 +137,4 @@ Client sponsor speaks money and risk — use that language.
 - [ ] Second-order impacts identified → `docs/success-metrics.md`
 - [ ] Tradeoffs presented and discussed
 - [ ] Quant and qual success criteria agreed and signed off by client sponsor → `docs/success-metrics.md`
+- [ ] Key decisions logged → `docs/decisions.md`
