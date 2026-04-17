@@ -218,6 +218,8 @@ These integration specs are prerequisites — they must be written before the sp
 | Out of scope / non-goals | `docs/project-goals.md` — non-goals; `docs/problem-statement.md` — explicit exclusions |
 | 3rd party integrations | `docs/buy-vs-build-matrix.md` and tech stack decision from 4B |
 
+**External product rule:** If `project.type === "external"` in `docs/crisp-state.json` — add a **Landing Page** epic to the backlog and tag it `MVP`. The landing page build is part of the launch, not a post-launch afterthought. The brief lives in `docs/landing-page-brief.md` (written in the Landing Page section below). Assign it to a sprint — typically Sprint 1 or a dedicated pre-launch sprint.
+
 Draft full epics and user stories in "As a [user], I want to [action], so that [outcome]" format. Leave MVP tag column blank — filled in 4D.
 
 Present with a naming check first:
@@ -587,6 +589,8 @@ Pre-fill from:
 
 Present to client for one round of copy corrections before handing off.
 
+> **MVP scope:** For external products, the landing page build is MVP — not a nice-to-have. It must already appear in `docs/initial-backlog.md` with an `MVP` tag (added during 4C) and have a sprint assigned in `docs/sprint-plan.md`.
+
 ---
 
 
@@ -723,6 +727,8 @@ If you want to review what's in scope for Sprint 1 first, check `docs/ai-spec-[s
   - [ ] PII rules applied — no personal data in event parameters
   - [ ] Events assigned to sprints
 - [ ] **[External product]** Landing page brief compiled → `docs/landing-page-brief.md`
+  - [ ] Landing page epic added to `docs/initial-backlog.md` with `MVP` tag
+  - [ ] Landing page sprint assigned in `docs/sprint-plan.md`
 
 **Agent Security**
 - [ ] **[Agent in scope]** Agent security spec written → `docs/agent-security.md`
