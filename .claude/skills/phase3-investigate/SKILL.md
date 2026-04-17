@@ -7,6 +7,17 @@ description: The Mileva Method (CRISP) — Phase 3: Investigate. Process mapping
 
 Map what exists (or what should exist) before designing a solution.
 
+## Project State
+
+> At the start of Phase I: read `docs/crisp-state.json`. Check phases C and R are complete. Use `project.type`, `phases.R.hitlZones`, `phases.R.stakeholders` for context.
+>
+> At the end of Phase I (before exit checklist): update `docs/crisp-state.json`:
+> - Set `phases.current` to `"S"`
+> - Add `"I"` to `phases.complete`
+> - Set `phases.I.complete` to `true`
+> - Fill `phases.I.processTrack`, `phases.I.userTypes`, `phases.I.dataMappingRequired`, `phases.I.uxDiscoveryRequired`, `phases.I.navigationPattern`
+> - Add any unresolved items to `phases.I.openQuestions`
+
 ## Two Tracks
 
 ### Track A: Existing Process (Automation)

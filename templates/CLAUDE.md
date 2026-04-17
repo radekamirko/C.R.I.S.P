@@ -196,6 +196,7 @@ _(Unresolved — Claude should flag these, not assume answers)_
 | `docs/data-mapping.md` | ✅ / ❌ / N/A | Required if any feature extracts/transforms structured data |
 | `docs/analytics-spec.md` | ✅ / ❌ / N/A (non-UI) | GA4 event map, conversion goals, PII rules |
 | `docs/landing-page-brief.md` | ✅ / ❌ / N/A (internal) | Hero copy, sections, visual direction |
+| `docs/crisp-state.json` | ✅ / ❌ | Project state contract — updated by each phase |
 | `docs/decisions.md` | ✅ / ❌ | Decision log across all phases |
 | `docs/agent-security.md` | ✅ / ❌ / N/A (no agent) | Agent permissions, data handling, failure modes |
 | `docs/ai-spec-[sprint/feature].md` | ✅ / ❌ | One per sprint — list all below |

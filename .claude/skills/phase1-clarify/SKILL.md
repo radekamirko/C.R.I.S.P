@@ -18,6 +18,21 @@ Every filled template produced during CRISP lives in the project's `docs/` folde
 > Blank templates live in `/templates/` (CRISP repo). Filled project outputs live in `[project]/docs/`.
 > Never overwrite blank templates. Always write filled versions to `docs/`.
 
+## Project State
+
+> At the start of Phase C: check if `docs/crisp-state.json` exists.
+> If yes — read it. Use `project` and `phases.C` fields for context.
+> If no — copy `templates/crisp-state.json` to `docs/crisp-state.json` and fill in `project.name`, `project.client`, `project.startedAt`, `project.type` as soon as these are known.
+>
+> At the end of Phase C (before exit checklist): update `docs/crisp-state.json`:
+> - Set `phases.current` to `"R"`
+> - Add `"C"` to `phases.complete`
+> - Set `phases.C.complete` to `true`
+> - Fill `phases.C.goNoGo`, `phases.C.oneSentence`, `phases.C.painkiller`, `phases.C.constraints`
+> - Set `project.type` to `"internal"` or `"external"`
+> - Set `project.agentInScope` and `project.memoryOwnershipRequired` if known
+> - Add any unresolved items to `phases.C.openQuestions`
+
 ---
 
 ## The 3 Moves

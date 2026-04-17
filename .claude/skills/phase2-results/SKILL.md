@@ -7,6 +7,17 @@ description: The Mileva Method (CRISP) — Phase 2: Results. Outcome alignment, 
 
 > "We don't know if we succeeded unless we defined what success looks like before we started."
 
+## Project State
+
+> At the start of Phase R: read `docs/crisp-state.json`. Check `phases.C` is complete. Use `phases.C.oneSentence`, `phases.C.constraints`, and `project.type` for context — do not re-read all Phase C docs from scratch.
+>
+> At the end of Phase R (before exit checklist): update `docs/crisp-state.json`:
+> - Set `phases.current` to `"I"`
+> - Add `"R"` to `phases.complete`
+> - Set `phases.R.complete` to `true`
+> - Fill `phases.R.baseline`, `phases.R.successTarget`, `phases.R.hitlZones`, `phases.R.stakeholders`
+> - Add any unresolved items to `phases.R.openQuestions`
+
 Do not discuss solutions or architecture until this phase is complete.
 
 ## Step 1: Stakeholder Register — Pre-fill, Elicit, Confirm

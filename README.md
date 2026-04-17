@@ -171,6 +171,7 @@ crisp/
     ├── logging-spec.md              — S: log levels, PII rules, format, destination, alerting (mandatory)
     ├── analytics-spec.md            — S: GA4 event map, conversion goals, PII rules, sprint gates (external UI only)
     ├── landing-page-brief.md        — S: hero copy, sections, CTAs, visual direction (external products only)
+    ├── crisp-state.json             — auto-updated by each phase — project state contract
     ├── decisions.md                 — C/R/I/S: decision log across all phases
     ├── agent-security.md            — S: agent identity/permissions, data handling, failure modes (when agent in scope)
     ├── progress-report.md           — any phase: status summary, decisions, open questions, next step

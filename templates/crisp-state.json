@@ -1,0 +1,77 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "description": "CRISP project state — updated at the end of each phase. Read this first before reading individual docs. Do not edit manually — updated by phase skills.",
+    "updatedAt": "",
+    "updatedBy": "phase"
+  },
+
+  "project": {
+    "name": "",
+    "client": "",
+    "startedAt": "",
+    "type": "internal|external",
+    "agentInScope": false,
+    "memoryOwnershipRequired": false
+  },
+
+  "phases": {
+    "current": "C",
+    "complete": [],
+    "C": {
+      "complete": false,
+      "goNoGo": "",
+      "oneSentence": "",
+      "painkiller": false,
+      "constraints": {
+        "budget": "",
+        "time": "",
+        "legal": "",
+        "technical": ""
+      },
+      "buyVsBuild": [],
+      "openQuestions": []
+    },
+    "R": {
+      "complete": false,
+      "baseline": "",
+      "successTarget": "",
+      "hitlZones": [],
+      "stakeholders": [],
+      "openQuestions": []
+    },
+    "I": {
+      "complete": false,
+      "processTrack": "existing|greenfield",
+      "userTypes": [],
+      "dataMappingRequired": false,
+      "uxDiscoveryRequired": false,
+      "navigationPattern": "",
+      "openQuestions": []
+    },
+    "S": {
+      "complete": false,
+      "stack": {
+        "harness": "",
+        "harnessOpen": null,
+        "memoryOwner": "client|provider",
+        "layers": []
+      },
+      "mvpLine": "",
+      "sprintCount": 0,
+      "sprints": [],
+      "analyticsRequired": false,
+      "landingPageRequired": false,
+      "openQuestions": []
+    },
+    "P": {
+      "complete": false,
+      "outcome": "success|partial|fail",
+      "notes": ""
+    }
+  },
+
+  "openQuestions": [],
+
+  "decisions": []
+}

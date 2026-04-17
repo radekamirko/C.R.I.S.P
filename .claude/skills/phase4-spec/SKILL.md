@@ -7,6 +7,19 @@ description: The Mileva Method (CRISP) — Phase 4: Spec. Full implementation re
 
 You are not building the thing. You are making the builder ready to build.
 
+## Project State
+
+> At the start of Phase S: read `docs/crisp-state.json`. Check phases C, R, and I are complete. Use `project`, `phases.C`, `phases.R`, `phases.I` fields to orient before reading other docs. Pay attention to: `project.agentInScope`, `project.memoryOwnershipRequired`, `phases.I.dataMappingRequired`, `phases.I.uxDiscoveryRequired`.
+>
+> At the end of Phase S (before exit checklist): update `docs/crisp-state.json`:
+> - Set `phases.current` to `"P"`
+> - Add `"S"` to `phases.complete`
+> - Set `phases.S.complete` to `true`
+> - Fill `phases.S.stack` (harness, harnessOpen, memoryOwner, layers)
+> - Fill `phases.S.mvpLine`, `phases.S.sprintCount`, `phases.S.sprints`
+> - Set `phases.S.analyticsRequired` and `phases.S.landingPageRequired`
+> - Add any unresolved items to `phases.S.openQuestions`
+
 **Output: a package a developer can read on Monday and start building on Tuesday.**
 
 ---
