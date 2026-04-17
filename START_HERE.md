@@ -44,7 +44,13 @@ Just make sure you `cd` into the folder before starting Claude — `/crisp-start
 
 Once Claude is running from the right folder:
 
-**Claude Code:**
+**New project or resuming — recommended:**
+```
+/crisp
+```
+Detects whether this is a new project or a resumption. Routes automatically.
+
+**New project only (legacy entry point):**
 ```
 /crisp-start
 ```
@@ -54,6 +60,9 @@ Once Claude is running from the right folder:
 Read .claude/skills/phase1-clarify/SKILL.md and begin Phase C.
 Don't explain anything. Just ask me about the project.
 ```
+
+---
+
 
 ---
 

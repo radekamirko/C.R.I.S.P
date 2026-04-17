@@ -77,12 +77,14 @@ API keys never touch the client. All 3rd party credentials stay server-side. Bea
 
 ## How to use
 
-1. Drop the `/skills` folder into your Claude Code project
-2. Use `/templates` as your deliverable starting points — fill outputs into `docs/` in your project, never overwrite the blank templates
-3. Run phases in order — do not skip
-4. Check the exit checklist before moving to the next phase
-5. Write one AI Spec per sprint before building anything
-6. After Phase S: just say "Start Sprint 1" — Claude Code reads the AI Spec and starts building. No new setup needed.
+1. Drop the `/.claude/skills` folder into your Claude Code project
+2. Run `/crisp` to start a new project or resume an existing one — the orchestrator detects where you are automatically
+3. Use `/templates` as your deliverable starting points — fill outputs into `docs/` in your project, never overwrite the blank templates
+4. Use `/templates` as your deliverable starting points — fill outputs into `docs/` in your project, never overwrite the blank templates
+5. Run phases in order — do not skip
+6. Check the exit checklist before moving to the next phase
+7. Write one AI Spec per sprint before building anything
+8. After Phase S: just say "Start Sprint 1" — Claude Code reads the AI Spec and starts building. No new setup needed.
 
 ---
 
@@ -131,7 +133,8 @@ crisp/
 ├── START_HERE.md                    — start here (human-readable + paste-to-Claude entry point)
 ├── CLAUDE.md                        — master CLAUDE.md template (compile per project)
 ├── .claude/skills/
-│   ├── crisp-start/SKILL.md         — /crisp-start entry point skill for Claude Code
+│   ├── crisp-start/SKILL.md         — /crisp-start entry point (legacy — new projects only)
+│   ├── crisp-orchestrator/SKILL.md  — /crisp recommended entry point (new + resume)
 │   ├── phase1-clarify/
 │   │   ├── SKILL.md                 — C: problem definition, elicitation moves, VPC, Go/No-Go
 │   │   ├── market-research.md       — C: TAM, competitor map, review mining, USP gap (external only)
