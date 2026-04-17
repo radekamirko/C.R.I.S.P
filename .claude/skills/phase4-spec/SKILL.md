@@ -532,6 +532,7 @@ Reference `docs/logging-spec.md` in `CLAUDE.md` and in every sprint's AI Spec qu
 | `docs/logging-spec.md` | Log levels, what to log, PII rules, format, destination, alerting | Always |
 | `docs/analytics-spec.md` | GA4 setup, event map, conversion goals, PII rules, sprint gates | External products with UI only |
 | `docs/landing-page-brief.md` | Hero copy, sections, CTAs, visual direction — compiled from all prior docs | External products only |
+| `docs/agent-security.md` | Agent identity/permissions, data handling, failure modes | When agent is in scope |
 | `docs/decisions.md` | Updated with Phase S decisions | Always |
 | `docs/ai-spec-[name].md` | One per sprint — pre-filled, open questions resolved, locked | Always (one per sprint) |
 | `docs/ai-spec-[service].md` | Integration spec per 3rd party service | Per integration |
@@ -574,6 +575,36 @@ Pre-fill from:
 Present to client for one round of copy corrections before handing off.
 
 ---
+
+
+### Agent Security Spec — when agent is in scope
+
+> **Trigger:** If `docs/problem-statement.md` indicates an AI agent is in scope, this is a mandatory Phase S output.
+> Do not start the sprint that builds the agent without a locked `docs/agent-security.md`.
+>
+> Aligned with AIUC-1 enterprise AI agent security standard.
+> This is the spec-layer translation of what was elicited in Phase R agent permission scoping.
+
+Write `docs/agent-security.md` using `/templates/agent-security.md`.
+
+Pre-fill from Phase R:
+- **Identity & Permissions** — from `docs/stakeholder-register.md` agent HITL/permissions section
+- **Hard boundaries** — from Phase R "what the agent must never do" elicitation
+- **Approval gates** — from Phase R gate conditions
+- **Data handling** — from `docs/problem-statement.md` (PII/compliance constraints) + Phase R data sensitivity elicitation
+- **Failure modes** — from Phase R failure behaviour elicitation
+
+Then generate open questions for anything not covered in Phase R:
+- Is the auth credential scoped to least privilege?
+- Is there an audit trail for every agent action?
+- Is the human fallback process documented and findable?
+- Are all agent actions reversible, or are some irreversible — if irreversible, is there a gate?
+
+Resolve all open questions before the sprint that builds the agent starts.
+
+Add to `CLAUDE.md`:
+- Agent security rules block (see CLAUDE.md template)
+- Reference `docs/agent-security.md` in the output manifest
 
 ### Decision Logging — Phase S
 
@@ -679,6 +710,17 @@ If you want to review what's in scope for Sprint 1 first, check `docs/ai-spec-[s
   - [ ] PII rules applied — no personal data in event parameters
   - [ ] Events assigned to sprints
 - [ ] **[External product]** Landing page brief compiled → `docs/landing-page-brief.md`
+
+**Agent Security**
+- [ ] **[Agent in scope]** Agent security spec written → `docs/agent-security.md`
+  - [ ] Identity & permissions defined — what agent can/cannot do autonomously
+  - [ ] Hard boundaries listed explicitly — what agent must never do
+  - [ ] Approval gates defined with trigger conditions
+  - [ ] Data handling rules set — PII, logging, retention
+  - [ ] All failure modes defined with human fallback documented
+  - [ ] Audit trail confirmed — every agent action is loggable
+  - [ ] All open questions resolved before agent sprint starts
+  - [ ] Agent security rules added to `CLAUDE.md`
   - [ ] Hero headline and value prop drafted
   - [ ] Pain points from VPC included
   - [ ] Visual direction from ux-discovery applied

@@ -111,6 +111,35 @@ _(From docs/logging-spec.md)_
 - Alerting: 
 - **Sprint quality gate:** Before marking a sprint complete — confirm logging is implemented for all new endpoints and jobs, and no PII or secrets appear in logs.
 
+
+## Agent Security
+_(Complete this section only if an AI agent is in scope — from `docs/agent-security.md`)_
+
+**Agent name / description:**
+
+**Permitted actions (autonomous):**
+- _(list from agent-security.md — what agent can do without approval)_
+
+**Hard boundaries (never):**
+- _(list from agent-security.md — what agent must never do)_
+
+**Approval gates:**
+| Action | Condition | Approver |
+|---|---|---|
+| | | |
+
+**Data rules:**
+- No PII in agent logs or reasoning traces
+- No PII sent to external APIs unless documented in agent-security.md
+- Agent credentials stored in environment variables only — never hardcoded
+
+**Failure rules:**
+- On failure: log the error with full context, notify [channel], hand off to human fallback
+- Never fail silently — a silent agent failure is worse than a loud one
+- Every agent action must produce an auditable log entry
+
+**Reference:** `docs/agent-security.md`
+
 ## Current sprint
 _(Update this at the start of each sprint)_
 
@@ -168,6 +197,7 @@ _(Unresolved — Claude should flag these, not assume answers)_
 | `docs/analytics-spec.md` | ✅ / ❌ / N/A (non-UI) | GA4 event map, conversion goals, PII rules |
 | `docs/landing-page-brief.md` | ✅ / ❌ / N/A (internal) | Hero copy, sections, visual direction |
 | `docs/decisions.md` | ✅ / ❌ | Decision log across all phases |
+| `docs/agent-security.md` | ✅ / ❌ / N/A (no agent) | Agent permissions, data handling, failure modes |
 | `docs/ai-spec-[sprint/feature].md` | ✅ / ❌ | One per sprint — list all below |
 | `docs/ai-spec-[integration].md` | ✅ / ❌ / N/A | One per 3rd party service — list all below |
 

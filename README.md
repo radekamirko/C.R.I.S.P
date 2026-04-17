@@ -172,6 +172,7 @@ crisp/
     ├── analytics-spec.md            — S: GA4 event map, conversion goals, PII rules, sprint gates (external UI only)
     ├── landing-page-brief.md        — S: hero copy, sections, CTAs, visual direction (external products only)
     ├── decisions.md                 — C/R/I/S: decision log across all phases
+    ├── agent-security.md            — S: agent identity/permissions, data handling, failure modes (when agent in scope)
     ├── progress-report.md           — any phase: status summary, decisions, open questions, next step
     ├── data-mapping.md              — I/S: structured data extraction field mapping, edge cases, validation
     └── CLAUDE.md                    — S: compiled project context — pinned versions, NFRs, output manifest
