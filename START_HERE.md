@@ -36,7 +36,7 @@ cd C.R.I.S.P
 claude
 ```
 
-Just make sure you `cd` into the folder before starting Claude — `/crisp-start` won't work from the parent directory.
+Just make sure you `cd` into the folder before starting Claude — `/crisp-orchestrator` won't work from the parent directory.
 
 ---
 
@@ -46,7 +46,7 @@ Once Claude is running from the right folder:
 
 **New project or resuming — recommended:**
 ```
-/crisp
+/crisp-orchestrator
 ```
 Detects whether this is a new project or a resumption. Routes automatically.
 
@@ -60,9 +60,6 @@ Detects whether this is a new project or a resumption. Routes automatically.
 Read .claude/skills/phase1-clarify/SKILL.md and begin Phase C.
 Don't explain anything. Just ask me about the project.
 ```
-
----
-
 
 ---
 

@@ -41,6 +41,40 @@ Built for:
 
 ---
 
+## What's new in V2
+
+V2 makes CRISP a system, not a collection of prompts. Everything that was previously reliant on discipline is now enforced by structure.
+
+### `/crisp-orchestrator` — new recommended entry point
+Replaces the manual "which phase am I on?" problem. Detects `docs/crisp-state.json`, reports current phase and open questions, routes automatically. Works for new projects and resumption.
+
+### `crisp-state.json` — machine-readable project state
+One JSON file in `docs/` updated at the end of each phase. Every phase reads it first; every phase writes to it on exit. Claude stops re-interpreting markdown it half-remembered from Phase C when it's in Phase S.
+
+### New mandatory Phase S outputs
+- **Logging spec** (`docs/logging-spec.md`) — log levels, PII rules, format, destination. Mandatory, not optional.
+- **Bearer security scanning** — Critical/High findings block PR merge. Enforced as a hard gate, not a suggestion.
+- **Analytics spec** (`docs/analytics-spec.md`) — GA4 event map tied directly to Phase R success metrics. External UI products only.
+- **Landing page brief** (`docs/landing-page-brief.md`) — compiled from VPC, market research, UX discovery. For external products, landing page build is **MVP-tagged** — not a post-launch afterthought.
+- **Agent security spec** (`docs/agent-security.md`) — AIUC-1-aligned. Mandatory when an agent is in scope. Covers identity/permissions, data handling, failure modes.
+- **Progress report** (`docs/progress-report.md`) — handoff artifact for clients and continuity across sessions.
+
+### Improved Phase S elicitation
+- **OSS library research** — structured GitHub evaluation for every open source dependency before committing. Stars, last commit, license, alternatives rejected with reason.
+- **Data mapping elicitation** — mandatory section in Phase I/S for features involving structured data extraction or transformation. Source → field mapping → DB schema → edge cases.
+- **Spec→Sprint transition** — Phase S now explicitly tells you to say "Start Sprint 1." No mode switching, no new setup.
+
+### Decision log across all phases
+`docs/decisions.md` — every key decision logged with rationale and what was rejected. Auditable. Protects you when client asks "why did you build it this way?"
+
+### Memory ownership question
+New field in Phase C (`problem-statement.md`) and Phase S tech stack: does the client require portability of agent memory across platforms? Surfaces before the contract is signed.
+
+### Backward compatibility
+**Nothing breaks.** `/crisp-start` still works. All phase skills behave exactly as before. If no `crisp-state.json` exists, every phase falls back gracefully. V2 adds structure on top — it doesn't remove anything.
+
+---
+
 ## Why CRISP exists
 
 Every AI project failure I've seen had the same root cause.
@@ -78,13 +112,12 @@ API keys never touch the client. All 3rd party credentials stay server-side. Bea
 ## How to use
 
 1. Drop the `/.claude/skills` folder into your Claude Code project
-2. Run `/crisp` to start a new project or resume an existing one — the orchestrator detects where you are automatically
+2. Run `/crisp-orchestrator` to start a new project or resume an existing one — detects where you are automatically
 3. Use `/templates` as your deliverable starting points — fill outputs into `docs/` in your project, never overwrite the blank templates
-4. Use `/templates` as your deliverable starting points — fill outputs into `docs/` in your project, never overwrite the blank templates
-5. Run phases in order — do not skip
-6. Check the exit checklist before moving to the next phase
-7. Write one AI Spec per sprint before building anything
-8. After Phase S: just say "Start Sprint 1" — Claude Code reads the AI Spec and starts building. No new setup needed.
+4. Run phases in order — do not skip
+5. Check the exit checklist before moving to the next phase
+6. Write one AI Spec per sprint before building anything
+7. After Phase S: just say "Start Sprint 1" — Claude Code reads the AI Spec and starts building. No new setup needed.
 
 ---
 
@@ -102,16 +135,16 @@ C — Clarify
                                                               │  │   │   │   │
 R — Results                                                   │  │   │   │   │
   stakeholder-register ───────────────────────────────────┐  │  │   │   │   │
-  (HITL zones)                                                          │  │  │   │   │   │
-  success-metrics ────────────────────────────────────────────────────┘  │  │   │   │   │
-  (baselines + targets + second-order effects)                              │  │   │   │   │
-                                                          │  │  │   │   │   │
-I — Investigate                                           │  │  │   │   │   │
-  process-flow ──────────────────────────────────────┐   │  │  │   │   │   │
-  user-journey-map (per system user type) ────────┐  │   │  │  │   │   │   │
-  project-goals ───────────────────────────────┐  │  │   │  │  │   │   │   │
-  ux-discovery (ext UI/Mobile/Web) ──────────┐ │  │  │   │  │  │   │   │   │
-                                             ↓ ↓  ↓  ↓   ↓  ↓  ↓   ↓   ↓   ↓
+  (HITL zones)                                            │  │  │   │   │   │
+  success-metrics ─────────────────────────────────────┐  │  │  │   │   │   │
+  (baselines + targets + second-order effects)          │  │  │  │   │   │   │
+                                                        │  │  │  │   │   │   │
+I — Investigate                                         │  │  │  │   │   │   │
+  process-flow ──────────────────────────────────────┐  │  │  │   │   │   │  │
+  user-journey-map (per system user type) ────────┐  │  │  │  │   │   │   │  │
+  project-goals ───────────────────────────────┐  │  │  │  │  │   │   │   │  │
+  ux-discovery (ext UI/Mobile/Web) ──────────┐ │  │  │  │  │  │   │   │   │  │
+                                             ↓ ↓  ↓  ↓  ↓  ↓  ↓   ↓   ↓   ↓  ↓
 S — Spec
   design-system + ux-spec (from ux-discovery + user-journey-map)
   tech stack — pinned versions + NFRs
@@ -134,7 +167,7 @@ crisp/
 ├── CLAUDE.md                        — master CLAUDE.md template (compile per project)
 ├── .claude/skills/
 │   ├── crisp-start/SKILL.md         — /crisp-start entry point (legacy — new projects only)
-│   ├── crisp-orchestrator/SKILL.md  — /crisp recommended entry point (new + resume)
+│   ├── crisp-orchestrator/SKILL.md  — /crisp-orchestrator recommended entry point (new + resume)
 │   ├── phase1-clarify/
 │   │   ├── SKILL.md                 — C: problem definition, elicitation moves, VPC, Go/No-Go
 │   │   ├── market-research.md       — C: TAM, competitor map, review mining, USP gap (external only)
@@ -173,7 +206,7 @@ crisp/
     ├── agent-skill.md               — S: template for each project agent SKILL.md
     ├── logging-spec.md              — S: log levels, PII rules, format, destination, alerting (mandatory)
     ├── analytics-spec.md            — S: GA4 event map, conversion goals, PII rules, sprint gates (external UI only)
-    ├── landing-page-brief.md        — S: hero copy, sections, CTAs, visual direction (external products only)
+    ├── landing-page-brief.md        — S: hero copy, sections, CTAs, visual direction (external products — MVP)
     ├── crisp-state.json             — auto-updated by each phase — project state contract
     ├── decisions.md                 — C/R/I/S: decision log across all phases
     ├── agent-security.md            — S: agent identity/permissions, data handling, failure modes (when agent in scope)
