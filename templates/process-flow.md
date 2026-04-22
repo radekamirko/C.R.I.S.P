@@ -10,13 +10,17 @@
 
 ## Process Steps
 
-| Step # | Actor | Action | Input | Output | Tool used | Decision? | Pain point? |
-|---|---|---|---|---|---|---|---|
-| 1 | | | | | | Yes / No | Yes / No |
-| 2 | | | | | | | |
-| 3 | | | | | | | |
-| 4 | | | | | | | |
-| 5 | | | | | | | |
+| Step # | Actor | Action | Input | Output | Tool used | Decision? | Pain point? | Success condition |
+|---|---|---|---|---|---|---|---|---|
+| 1 | | | | | | Yes / No | Yes / No | _(plain English: "this step is working correctly when...")_ |
+| 2 | | | | | | | | |
+| 3 | | | | | | | | |
+| 4 | | | | | | | | |
+| 5 | | | | | | | | |
+
+> **Success condition** — write this in plain language from the client's perspective, not technical terms.
+> It must be specific enough to become a unit test assertion in Phase S.
+> Bad: "works correctly" — Good: "Slack message sent to #sales within 30 seconds of HeyReach reply received"
 
 ---
 
@@ -40,4 +44,3 @@ _(Link to draw.io / Figma / Miro file, or attach photo of whiteboard)_
 
 ## Key Observations
 _(What surprised you? What's worse than expected? What's already working?)_
-
