@@ -35,11 +35,27 @@ _(Mirrored back and confirmed by client)_
 | Scope | |
 | Technical | |
 
-## Go / No-Go
-- [ ] ✅ Go
-- [ ] ❌ No-Go
+## AI Justification
+_(Complete this section if the solution involves AI — whether custom-built or agent-based)_
 
-**Reason:**
+**Does this project require custom AI?**
+- [ ] Yes
+- [ ] No → direct client to off-the-shelf AI product (document which one below)
+- [ ] N/A — no AI in scope
+
+**What does custom AI do that an off-the-shelf product (Claude.ai, ChatGPT, Copilot, etc.) cannot?**
+_(This must be answered specifically. Vague answers = No-Go.)_
+
+
+**Total cost estimate: custom build + running costs vs. best off-the-shelf alternative:**
+| Option | Est. cost |
+|---|---|
+| Custom build + hosting + API costs | |
+| Best off-the-shelf alternative | |
+
+**Delta justified?**
+- [ ] Yes — reason:
+- [ ] No → No-Go. Direct client to:
 
 ---
 
@@ -58,4 +74,17 @@ _(i.e. if you switch AI providers or harnesses in 12 months, does the client nee
 
 **Notes:**
 _(If Yes: document this as a hard constraint in Phase S tech stack. Closed harnesses like Claude Managed Agents or OpenAI Responses API are excluded from consideration.)_
+
+---
+
+## Go / No-Go
+- [ ] ✅ Go
+- [ ] ❌ No-Go
+
+**Reason:**
+
+---
+
+## Non-Functional Requirements
+_(Appended during Phase S — 4B. Leave blank until then.)_
 
