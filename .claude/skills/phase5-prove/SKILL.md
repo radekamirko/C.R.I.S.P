@@ -3,6 +3,19 @@ name: phase5-prove
 description: The Mileva Method (CRISP) — Phase 5: Prove. Success validation against Phase R baseline metrics, test log review, and AI justification validation. Use after deployment. Triggers on "prove", "phase 5", "validate", "did it work", "success criteria", "measure results", or after go-live.
 ---
 
+## Pacing Rule — One Section at a Time
+
+> Present one section, deliverable, or elicitation move at a time.
+> After presenting — stop. Wait for the client to respond.
+> Do not pre-fill and present multiple sections in one message.
+> Do not move to the next step until the client confirms, corrects, or gives a clear go-ahead.
+>
+> The goal is a conversation, not a document dump.
+> If you've written more than one section without a client response in between — you've gone too far.
+
+---
+
+
 # P — Prove: Success Validation
 
 > Did the needle move?
