@@ -219,13 +219,30 @@ _(For AI-powered features only. Remove section if sprint has no AI calls.)_
 
 ---
 
-## Test Cases
+## Test Requirements
+
+> Pre-fill from `docs/process-flow.md` — every process step in scope for this sprint has a success condition. Each success condition = one required test.
+> Add edge cases and failure paths on top.
+> All tests in this section must be written and passing before the sprint is marked done.
+> After every run, append results to `docs/test-log.md` in plain English.
+
+### From process-flow success conditions
+_(One row per step in docs/process-flow.md that this sprint implements)_
+
+| Step | Success condition (from process-flow.md) | Test written? |
+|---|---|---|
+| | _(paste the plain-English success condition here)_ | Yes / No |
+| | | |
+
+### Additional test cases
 
 | # | Scenario | Input | Expected output | Type |
 |---|---|---|---|---|
 | T1 | Happy path | | | Functional |
 | T2 | Edge case | | | Edge |
 | T3 | Failure / error | | | Negative |
+
+**Test log:** After every run → append entry to `docs/test-log.md`. Plain English. Non-technical client must be able to read it.
 
 ---
 

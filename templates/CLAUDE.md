@@ -112,6 +112,22 @@ _(From docs/logging-spec.md)_
 - **Sprint quality gate:** Before marking a sprint complete — confirm logging is implemented for all new endpoints and jobs, and no PII or secrets appear in logs.
 
 
+## Testing Rules
+
+> These rules apply to every sprint. No exceptions.
+
+- **Write unit tests for every function and feature in scope** before marking the sprint done. Tests are not optional and not a post-sprint task — they ship with the feature.
+- **Run the full test suite before every commit.** If any test fails — stop. Fix the failure before committing. Do not commit broken tests. Do not skip tests.
+- **After every test run, append an entry to `docs/test-log.md`** using the format in `templates/test-log.md`:
+  - Sprint name, date, run trigger (commit / pre-push / manual)
+  - Each test: plain-English description of what was tested + ✅ / ❌
+  - For any failure: what failed, what was wrong, what fix was applied, re-run result
+- **Test descriptions must be plain English** — written so a non-technical client can read the log and understand what the system does and whether it's working. Not "test_fn_returns_200" — "Slack notification sends when HeyReach campaign receives a reply".
+- Pre-fill test requirements from the **success conditions** in `docs/process-flow.md` (one test per process step) and the **acceptance criteria** in the sprint's AI Spec.
+
+**Test log location:** `docs/test-log.md`
+
+
 ## Agent Security
 _(Complete this section only if an AI agent is in scope — from `docs/agent-security.md`)_
 
@@ -177,9 +193,11 @@ _(Unresolved — Claude should flag these, not assume answers)_
 ### Phase 3 — Investigate
 | File | Status | Notes |
 |---|---|---|
-| `docs/process-flow.md` | ✅ / ❌ | |
+| `docs/process-flow.md` | ✅ / ❌ | Incl. success condition per step |
 | `docs/user-journey-map.md` | ✅ / ❌ | |
 | `docs/project-goals.md` | ✅ / ❌ | |
+| `docs/integration-map.md` | ✅ / ❌ | Every external system — direction, trigger, data in/out, format |
+| `docs/data-flow.md` | ✅ / ❌ | Full system pipe in plain language — client signed off |
 | `docs/ux-discovery.md` | ✅ / ❌ / N/A (non-UI) | |
 
 ### Phase 4 — Spec
@@ -201,6 +219,7 @@ _(Unresolved — Claude should flag these, not assume answers)_
 | `docs/agent-security.md` | ✅ / ❌ / N/A (no agent) | Agent permissions, data handling, failure modes |
 | `docs/ai-spec-[sprint/feature].md` | ✅ / ❌ | One per sprint — list all below |
 | `docs/ai-spec-[integration].md` | ✅ / ❌ / N/A | One per 3rd party service — list all below |
+| `docs/test-log.md` | ✅ / ❌ | Running test record — appended after every run across all sprints |
 
 **AI Specs written:**
 - [ ] `docs/ai-spec-` 

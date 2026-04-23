@@ -461,6 +461,7 @@ Compile from ALL `docs/` files → `CLAUDE.md` in project root.
 | NFR references | `docs/problem-statement.md` NFR section — which NFRs apply to this sprint |
 | 3rd Party Integrations | `docs/buy-vs-build-matrix.md` and 4B tech stack — only for sprints that call those APIs |
 | Environment variables | 4B tech stack; prior integration AI specs |
+| Test requirements | `docs/process-flow.md` — success condition per process step in sprint scope; acceptance criteria from user stories |
 
 **Step 2: Generate sprint-specific open questions**
 
@@ -507,8 +508,26 @@ Work through the questions. Fill answers into the spec. One round. Lock it. No c
 - Deployment checklist: dependencies resolved, env vars clean, no secrets in code
 - Security review before each deploy — cross-check NFRs from 4B
 - PR review standards defined
-- Unit test coverage requirements
 - Guardrail validation: hallucination risks, output validation, fallback logic
+
+**Unit Tests — mandatory on every sprint:**
+
+Tests are not optional and not an afterthought. They are part of the sprint scope. Estimate test writing time alongside feature development — not separately.
+
+Rules for Claude Code (copy these into CLAUDE.md via `templates/CLAUDE.md`):
+- Write unit tests for every function and feature in scope before marking sprint done
+- Run the full test suite before every commit — if a test fails, fix it before committing; do not skip
+- After every run, append an entry to `docs/test-log.md`: sprint, date, each test in plain English, ✅/❌, and for any failure — what was wrong and how it was fixed
+- Test descriptions must be plain English: "Slack notification sends when HeyReach campaign receives a reply" — not "test_fn_returns_200"
+
+**Pre-filling test requirements in the AI Spec:**
+
+For each sprint's AI Spec, pre-fill the Test Requirements section from:
+1. `docs/process-flow.md` — every process step in scope has a success condition; each becomes a required test
+2. Acceptance criteria from the sprint's user stories in `docs/initial-backlog.md`
+3. Edge cases from `docs/assumptions-log.md` and `docs/risk-assessment.md`
+
+> For non-technical clients: the test log is their window into whether the system is actually working. Write it so they can read it. "✅ Slack notification sent when HeyReach reply received — 2026-04-22 — Sprint 1" is useful. "PASS 47/47" is not.
 
 **Security Scanning — Bearer (mandatory on every PR):**
 
@@ -572,6 +591,7 @@ Reference `docs/logging-spec.md` in `CLAUDE.md` and in every sprint's AI Spec qu
 | `docs/ai-spec-[service].md` | Integration spec per 3rd party service | Per integration |
 | `docs/sprint-plan.md` | Sprint sequence, goals, features per sprint, quality gates | Always |
 | `CLAUDE.md` | Compiled project context incl. NFRs — lives in project root, not docs/ | Always |
+| `docs/test-log.md` | Running test record — appended after every run, plain English, all sprints | Always |
 
 ---
 
@@ -740,6 +760,10 @@ If you want to review what's in scope for Sprint 1 first, check `docs/ai-spec-[s
 - [ ] No open questions remain in any locked spec
 - [ ] Sprint plan sequenced using MVP prioritization + dependency map → `docs/sprint-plan.md`
 - [ ] Quality gates defined per sprint (incl. logging gate)
+- [ ] Test requirements pre-filled in every AI Spec from process-flow success conditions
+- [ ] Test writing included in sprint effort estimates (not a separate afterthought)
+- [ ] `docs/test-log.md` created from `templates/test-log.md`
+- [ ] Testing rules block in `CLAUDE.md` — write tests, run before commit, append to test-log, plain English
 - [ ] Integration specs completed before sprints that depend on them
 - [ ] Key decisions logged → `docs/decisions.md`
 
