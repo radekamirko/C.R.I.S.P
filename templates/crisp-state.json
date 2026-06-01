@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "version": "1.0",
-    "description": "CRISP project state — updated at the end of each phase. Read this first before reading individual docs. Do not edit manually — updated by phase skills.",
+    "version": "2.0",
+    "description": "CRISP project state — updated at the end of each phase and sprint. Read this first before reading individual docs. Do not edit manually — updated by phase skills and crisp-execute.",
     "updatedAt": "",
     "updatedBy": "phase"
   },
@@ -14,6 +14,9 @@
     "agentInScope": false,
     "memoryOwnershipRequired": false
   },
+
+  "mode": "discovery",
+  "_mode_options": ["discovery", "archaeology", "execute", "prove"],
 
   "phases": {
     "current": "C",
@@ -71,7 +74,83 @@
     }
   },
 
-  "openQuestions": [],
+  "handoffs": {
+    "discovery_complete": false,
+    "archaeology_complete": false,
+    "ready_for_execute": false,
+    "execute_complete": false
+  },
 
+  "execute": {
+    "current_sprint": null,
+    "sprints_complete": [],
+    "sprints_total": null,
+    "gates": {},
+    "_gate_example": {
+      "sprint_1": {
+        "product": "pending",
+        "security": "pending",
+        "_status_options": ["pending", "passed", "failed"],
+        "date": null,
+        "findings": []
+      }
+    },
+    "change_requests": [],
+    "_change_request_example": {
+      "id": "CR-001",
+      "description": "",
+      "classification": "new_feature",
+      "_classification_options": ["new_feature", "scope_change", "bug_fix"],
+      "received_during_sprint": null,
+      "slotted_to_sprint": null,
+      "status": "queued",
+      "_status_options": ["queued", "in_progress", "shipped", "rejected"],
+      "ai_spec_required": false,
+      "notes": ""
+    }
+  },
+
+  "artifacts": {
+    "docs_complete": [],
+    "agent_docs_complete": [],
+    "_doc_options": [
+      "problem-statement",
+      "success-metrics",
+      "market-research",
+      "swot",
+      "buy-vs-build-matrix",
+      "value-proposition-canvas",
+      "stakeholder-register",
+      "user-journey-map",
+      "ux-discovery",
+      "process-flow",
+      "project-goals",
+      "design-system",
+      "ux-spec",
+      "initial-backlog",
+      "assumptions-log",
+      "risk-assessment",
+      "mvp-prioritization",
+      "sprint-plan",
+      "data-mapping",
+      "logging-spec",
+      "analytics-spec",
+      "landing-page-brief",
+      "agent-security",
+      "decisions",
+      "test-log",
+      "integration-map",
+      "data-flow"
+    ],
+    "_agent_doc_options": [
+      "CLAUDE.md",
+      "ARCHITECTURE.md",
+      "SECURITY.md",
+      "DEPLOYMENT.md",
+      "CONVENTIONS.md"
+    ]
+  },
+
+  "openQuestions": [],
   "decisions": []
 }

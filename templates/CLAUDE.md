@@ -92,16 +92,100 @@ _(From docs/risk-assessment.md — where Claude must NOT act autonomously)_
 - 
 - 
 
-## Security rules
-_(Non-negotiable — Claude must follow these always)_
+---
 
-- Never log or expose PII
-- Never commit secrets or API keys — verify `.gitignore` covers `.env*` before first commit
-- All environment variables verified present before use — fail loudly if missing, never silently fallback
-- **Never expose API keys or credentials client-side.** All 3rd party API calls requiring secrets must be made server-side. The client calls your server route; your server calls the 3rd party.
-- Server-side secrets (Stripe, OpenAI, OAuth tokens, service role keys) must never appear in client bundles, `NEXT_PUBLIC_` vars, or mobile app source.
-- **Bearer security scanner runs on every PR. Critical/High findings BLOCK merge. Do not proceed, do not merge, do not work around — fix the finding first.** Medium findings require acknowledgement before merge. Low/Info are logged only.
+## Security Rules
+
+> These are non-negotiable. Claude must follow them every session, every sprint, no exceptions.
+> Source: CRISP security baseline. References: Claude Code Security Guidance, Microsoft Agent Governance Toolkit (https://github.com/microsoft/agent-governance-toolkit), NVIDIA SkillSpector (https://github.com/nvidia/skillspector).
+
+### Secrets & credentials
+- Never log, expose, or hardcode API keys, tokens, passwords, or secrets — anywhere
+- All credentials accessed via environment variables only
+- Verify `.gitignore` covers `.env*` and secret files before the first commit — never after
+- **Never expose credentials client-side.** No `NEXT_PUBLIC_` secrets, no mobile bundle secrets, no frontend env vars with service keys
+- All 3rd party API calls requiring credentials must be made server-side. The client calls your server; your server calls the 3rd party
+- Server-side secrets (Stripe, OpenAI, OAuth tokens, DB service role keys) must never appear in client bundles
+
+### Input & output handling
+- Validate and sanitise all user inputs before they reach the backend — type, length, format
+- Never pass raw user input directly to: database queries, shell commands, file paths, or LLM system prompts
+- Sanitise all outputs before rendering — prevent XSS and injection in HTML, JSON, and log output
+- Never log PII (names, emails, IDs, payment info, health data) — mask or omit in all log statements
+
+### Authentication & authorisation
+- Verify auth on every protected route and endpoint — never trust client-side role claims
+- Apply least privilege: each role sees only what it needs, nothing more
+- Check permissions server-side before every sensitive operation (read, write, delete, export)
+
+### Dependencies
+- Check new dependencies for known CVEs before adding: `npm audit` / `pip-audit` / `cargo audit`
+- Pin versions — no `latest`, no `*`, no unpinned ranges in production dependencies
+- Do not add dependencies not listed in the tech stack table without flagging first
+
+### Static security scanning — Bearer (mandatory on every PR)
+- Bearer runs on every PR. Integrated in CI — do not bypass or skip
+- 🔴 Critical / High findings: block the PR. Fix before merge, no exceptions
+- 🟡 Medium findings: flag in PR comments, require acknowledgement
+- 🟢 Low / Informational: log, no block
 - Logging is mandatory for all API endpoints and background jobs. No PII in logs. No secrets in logs. See `docs/logging-spec.md`.
+```yaml
+- name: Bearer Security Scan
+  uses: bearer/bearer-action@v2
+  with:
+    severity: critical,high
+    fail-on-severity: critical,high
+```
+
+### Agent & tool governance (if this project has AI agents or tools)
+> Reference: Microsoft Agent Governance Toolkit — https://github.com/microsoft/agent-governance-toolkit
+> Install: `pip install agent-governance-toolkit[full]`
+> Claude Code plugin: `claude --plugin-dir ./agent-governance-claude-code`
+
+- Declare every tool's allowed action scope in `docs/agent-security.md` before the sprint that builds it
+- Wrap governed tools with AGT policy enforcement — every tool call is checked, logged, denied if out of scope
+- Policy YAML lives at `governance/policy.yaml` — define `default_action: allow` + explicit deny rules for destructive ops
+- Destructive operations (delete, drop, truncate, send, publish, deploy) require `require_approval` — never autonomous
+- All agent actions logged: agent identity, action type, policy decision, timestamp — tamper-evident
+- In multi-agent systems: every agent has a declared identity; API keys are not shared between agents
+- Circuit breaker enabled for downstream calls — cascading failures must not propagate silently
+- OWASP Agentic Top 10 (ASI01–ASI11) coverage enforced via AGT middleware — do not bypass
+
+**Minimum `governance/policy.yaml`:**
+```yaml
+apiVersion: governance.toolkit/v1
+name: [project]-policy
+default_action: allow
+rules:
+  - name: block-destructive
+    condition: "action.type in ['drop', 'delete', 'truncate']"
+    action: deny
+  - name: require-approval-send
+    condition: "action.type in ['send_email', 'send_message', 'publish', 'deploy']"
+    action: require_approval
+    approvers: ["human-owner"]
+```
+
+### Skill & prompt security (if this project ships AI skills or prompts)
+> Reference: NVIDIA SkillSpector — https://github.com/nvidia/skillspector
+> Scans for 64 vulnerability patterns: prompt injection, data exfiltration, privilege escalation, supply chain, and more.
+
+- Run SkillSpector on every SKILL.md and prompt file before shipping: `skillspector scan ./skills/`
+- Risk score 0–100: above 50 → review required; above 75 → blocks merge
+- No raw user input injected directly into system prompts — sanitise and bound all user-controlled content
+- Prompt boundaries must be clearly defined — user input cannot escape its declared context
+- Skills must not request more permissions than needed for their stated purpose (least privilege)
+```yaml
+- name: SkillSpector Scan
+  run: |
+    pip install skillspector
+    skillspector scan ./skills/ --format sarif --output skillspector.sarif
+  env:
+    SKILLSPECTOR_PROVIDER: anthropic
+    ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+```
+
+---
 
 ## Logging
 _(From docs/logging-spec.md)_
@@ -111,6 +195,7 @@ _(From docs/logging-spec.md)_
 - Alerting: 
 - **Sprint quality gate:** Before marking a sprint complete — confirm logging is implemented for all new endpoints and jobs, and no PII or secrets appear in logs.
 
+---
 
 ## Testing Rules
 
@@ -127,6 +212,7 @@ _(From docs/logging-spec.md)_
 
 **Test log location:** `docs/test-log.md`
 
+---
 
 ## Agent Security
 _(Complete this section only if an AI agent is in scope — from `docs/agent-security.md`)_
@@ -155,6 +241,8 @@ _(Complete this section only if an AI agent is in scope — from `docs/agent-sec
 - Every agent action must produce an auditable log entry
 
 **Reference:** `docs/agent-security.md`
+
+---
 
 ## Current sprint
 _(Update this at the start of each sprint)_
@@ -217,6 +305,7 @@ _(Unresolved — Claude should flag these, not assume answers)_
 | `docs/crisp-state.json` | ✅ / ❌ | Project state contract — updated by each phase |
 | `docs/decisions.md` | ✅ / ❌ | Decision log across all phases |
 | `docs/agent-security.md` | ✅ / ❌ / N/A (no agent) | Agent permissions, data handling, failure modes |
+| `governance/policy.yaml` | ✅ / ❌ / N/A (no agent) | AGT policy — required if agents in scope |
 | `docs/ai-spec-[sprint/feature].md` | ✅ / ❌ | One per sprint — list all below |
 | `docs/ai-spec-[integration].md` | ✅ / ❌ / N/A | One per 3rd party service — list all below |
 | `docs/test-log.md` | ✅ / ❌ | Running test record — appended after every run across all sprints |
